@@ -14,6 +14,7 @@ It is a system for connecting loosely coupled programs into a research flight si
    :maxdepth: 2
    :caption: Contents:
 
+   manager
    documentation
 
 
