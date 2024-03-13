@@ -1,0 +1,17 @@
+site_name: MARSH Documentation
+site_url: https://marsh-sim.github.io/
+repo_url: https://github.com/marsh-sim/marsh-sim.github.io
+
+site_description: Documentation for projects in MARSH-Sim research simulator
+site_author: Marek S. Lukasiewicz
+copyright: "© 2024, Marek S. Lukasiewicz, CC-BY 4.0"
+
+nav:
+  - Home: README.md
+  - Manager:
+    - MARSH Manager: manager/README.md
+    - Contributing: manager/contributing.md
+  - Project:
+    - Documentation: documentation.md
+
+theme: readthedocs
