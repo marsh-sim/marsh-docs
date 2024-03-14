@@ -16,6 +16,7 @@ The application will probably work on other platforms, but only those targets ar
 - [Qt for Open Source Development](https://www.qt.io/download-open-source)
     - Qt version **6.5**
     - Qt Creator
+    - *Ubuntu only*: Manually install XCB library: `sudo apt install libxcb-cursor0`
 - *Optional, but recommended*: Qt installs its own CMake, but you may need to install `cmake-format` manually, with `pip install cmakelang` or `apt install cmake-format`
 
 ![Selected components in Qt Maintenance Tool](qt_components.png)
@@ -31,6 +32,7 @@ To clone [the repository](https://github.com/marsh-sim/marsh-manager) with its i
 
 ```bash
 git clone https://github.com/marsh-sim/marsh-manager.git --recursive
+cd marsh-manager
 ```
 
 !!! note
