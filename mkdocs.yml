@@ -12,6 +12,11 @@ nav:
     - MARSH Manager: manager/README.md
     - Contributing: manager/contributing.md
   - Project:
+    - Rationale: rationale.md
+    - Node Development: node_development.md
     - Documentation: documentation.md
 
 theme: readthedocs
+
+markdown_extensions:
+  - admonition

@@ -10,7 +10,7 @@ The pages can be built into HTML and other formats using Python. A virtual envir
 
 The following commands can be used for Linux:
 
-```
+```bash
 python3 -m venv venv
 source venv/bin/activate
 pip install -r requirements.txt
@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 For users on Windows, only the line to activate the virtual environment changes to:
 
-```
+```ps1
 ./venv/Scripts/activate
 ```
 
@@ -26,13 +26,13 @@ For users on Windows, only the line to activate the virtual environment changes 
 
 Once a local installation is complete, the pages can be re-built live with:
 
-```
+```bash
 mkdocs serve
 ```
 
 ## Contributing
 
-Content is written in Markdown and built to HTML with [MkDocs](https://www.mkdocs.org/). Markdown files should preferably be formatted with [Prettier](https://prettier.io/), conveniently available as an [extension for VS Code](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode).
+Content is written in Markdown and built to HTML with [MkDocs](https://www.mkdocs.org/). Markdown files should preferably be formatted with [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
 ### Recommended resources
 

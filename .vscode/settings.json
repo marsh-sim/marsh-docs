@@ -1,0 +1,10 @@
+{
+    "[markdown]": {
+        "editor.defaultFormatter": "DavidAnson.vscode-markdownlint",
+        "editor.formatOnSave": true,
+    },
+    "[yaml]": {
+        // doing strange indentation in mkdocs.yml
+        "editor.formatOnSave": false
+    }
+}
