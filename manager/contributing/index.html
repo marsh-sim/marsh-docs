@@ -49,11 +49,33 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Contributing</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#prerequisites">Prerequisites</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#downloading-the-source-code">Downloading the source code</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#building-the-project">Building the project</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mavlink-library">MAVLink library</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#qt-application">Qt application</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#optional-qt-creator-configuration">Optional: Qt Creator configuration</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#formatting">Formatting</a>
+    </li>
+        </ul>
+    </li>
     </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Project</span></p>
               <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rationale/">Rationale</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../node_development/">Node Development</a>
+                  </li>
                   <li class="toctree-l1"><a class="reference internal" href="../../documentation/">Documentation</a>
                   </li>
               </ul>
@@ -85,12 +107,91 @@
                 <h1 id="contributing">Contributing</h1>
 <p>Contributions to <a href="../../documentation/">documentation</a> and code are welcome.
 The repository is on GitHub as <a href="https://github.com/marsh-sim/marsh-manager">marsh-sim/marsh-manager</a>, contributions are expected as <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a> to that repository.</p>
+<h2 id="prerequisites">Prerequisites</h2>
+<p>The development is done on Ubuntu 22.04 and Windows 10.
+The application will probably work on other platforms, but only those targets are supported.</p>
+<ul>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://www.python.org/">Python</a></li>
+<li>A C++ 17 compiler for the platform<ul>
+<li>GCC for Linux</li>
+<li>MSVC for Windows (installed with Visual Studio)</li>
+</ul>
+</li>
+<li><a href="https://www.qt.io/download-open-source">Qt for Open Source Development</a><ul>
+<li>Qt version <strong>6.5</strong></li>
+<li>Qt Creator</li>
+</ul>
+</li>
+<li><em>Optional, but recommended</em>: Qt installs its own CMake, but you may need to install <code>cmake-format</code> manually, with <code>pip install cmakelang</code> or <code>apt install cmake-format</code></li>
+</ul>
+<p><img alt="Selected components in Qt Maintenance Tool" src="../qt_components.png" /></p>
+<p>To conserve disk space you can select libraries actually used in the project, see <a href="https://github.com/marsh-sim/marsh-manager/blob/main/CMakeLists.txt">the project's CMakeLists.txt</a>, but it's possible in the future more will be used.</p>
+<h2 id="downloading-the-source-code">Downloading the source code</h2>
+<p>To use our own dialect, the project depends on <a href="https://github.com/marsh-sim/mavlink">a fork of MAVLink</a>, included as a <a href="https://git-scm.com/book/en/v2/Git-Tools-Submodules">Git Submodule</a> (which in turn has <a href="https://github.com/ArduPilot/pymavlink">pymavlink</a> inside).</p>
+<p>Open the folder where you want to keep the project code, and open it in terminal.
+To clone <a href="https://github.com/marsh-sim/marsh-manager">the repository</a> with its inner modules, add the <code>--recursive</code> flag:</p>
+<pre><code class="language-bash">git clone https://github.com/marsh-sim/marsh-manager.git --recursive
+</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you didn't get the submodules during clone, or they changed to a different commit, you can update them with: <code>git submodule update --init --recursive</code></p>
+</div>
+<h2 id="building-the-project">Building the project</h2>
+<h3 id="mavlink-library">MAVLink library</h3>
+<p>After downloading the project for the first time, or after changes in the MAVLink dialect, the communication library needs to be regenerated.
+A virtual environment is recommended to avoid mixing packages installed here with system packages.
+The following commands can be used for Linux:</p>
+<pre><code class="language-bash">python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+</code></pre>
+<p>For users on Windows, only the line to activate the virtual environment changes to:</p>
+<pre><code class="language-ps1">./venv/Scripts/activate
+</code></pre>
+<p>With the environment activated and all prerequisites installed, run the generator script:</p>
+<pre><code class="language-bash">python scripts/update_mavlink.py
+</code></pre>
+<h3 id="qt-application">Qt application</h3>
+<p>Launch Qt Creator, click "Open Project..." on the left and open the <code>CMakeLists.txt</code> file in  the<code>marsh-manager</code> directory.</p>
+<p>When shown the Configure window, mark a kit that starts with "Desktop Qt 6.5" and click "Configure Project" in the bottom right corner.</p>
+<p>The project can be compiled and optionally built using the buttons in the bottom left corner, or the "Build" menu on the top menu bar.
+This should rebuild all the necessary files, and optionally start the application and attach a debugger.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The details of application version are generated by CMake based on last Git commit.
+You should fully run CMake after every commit. If you didn't change anything, run manually with: "Build"&nbsp;&gt;&nbsp;"Run&nbsp;CMake"</p>
+</div>
+<p><img alt="Build buttons in the corner" src="../build_buttons.png" /></p>
+<p>The application can be built in different modes, <a href="https://stackoverflow.com/questions/8829946/whats-the-difference-between-a-qt-debug-version-and-the-qt-release-version">a short explanation quoted from Stack Overflow</a>:</p>
+<blockquote>
+<p>Debug versions are usually slower, larger, and take up more RAM. They have debugging symbols, which make debugging possible and simpler. Release versions are stripped of all non-production information.</p>
+<p>In debug builds variables and memory are generally set to zero but in release this step is skipped to save time. Extra data is also added around objects and allocated memory as barriers to detect memory overwrites.</p>
+</blockquote>
+<p>In this specific project, building is noticeably faster for Debug builds.
+You can differentiate Debug build from Release by the window title, in which Debug builds also have the commit count on the end of version string after a <code>+</code> sign.</p>
+<p><img alt="Screenshot of MARSH Manager window with visible version" src="../version_window.png" /></p>
+<h2 id="optional-qt-creator-configuration">Optional: Qt Creator configuration</h2>
+<p>Qt Creator <strong>includes Vim mode</strong> ("Edit" &gt; "Preferences" &gt; "FakeVim").</p>
+<h3 id="formatting">Formatting</h3>
+<p>To avoid "noisy diff" where changes are just formatting changes, it's recommended to enable format on save for all used kinds of source files:</p>
+<ul>
+<li>In window "Edit" &gt; "Preferences":<ul>
+<li>"C++" &gt; "Code Style"</li>
+<li>"Qt Quick" &gt; "QML/JS Editing"</li>
+<li>"CMake" &gt; "Formatter"</li>
+</ul>
+</li>
+</ul>
+<p><img alt="Setting for C++" src="../format_cpp.png" /></p>
+<p><img alt="Setting for QML" src="../format_qml.png" /></p>
+<p><img alt="Setting for CMake" src="../format_cmake.png" /></p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../" class="btn btn-neutral float-left" title="MARSH Manager"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../documentation/" class="btn btn-neutral float-right" title="Documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../rationale/" class="btn btn-neutral float-right" title="Rationale">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -121,7 +222,7 @@ The repository is on GitHub as <a href="https://github.com/marsh-sim/marsh-manag
       <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../rationale/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

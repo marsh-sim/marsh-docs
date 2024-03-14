@@ -2,22 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://marsh-sim.github.io/</loc>
-         <lastmod>2024-03-13</lastmod>
+         <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://marsh-sim.github.io/documentation/</loc>
-         <lastmod>2024-03-13</lastmod>
+         <lastmod>2024-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://marsh-sim.github.io/node_development/</loc>
+         <lastmod>2024-03-14</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://marsh-sim.github.io/rationale/</loc>
+         <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://marsh-sim.github.io/manager/</loc>
-         <lastmod>2024-03-13</lastmod>
+         <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://marsh-sim.github.io/manager/contributing/</loc>
-         <lastmod>2024-03-13</lastmod>
+         <lastmod>2024-03-14</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

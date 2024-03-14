@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Marek S. Lukasiewicz" /><link rel="canonical" href="https://marsh-sim.github.io/rationale/" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Rationale - MARSH Documentation</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Rationale";
+        var mkdocs_page_input_path = "rationale.md";
+        var mkdocs_page_url = "/rationale/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> MARSH Documentation
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Manager</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../manager/">MARSH Manager</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../manager/contributing/">Contributing</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Project</span></p>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Rationale</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#objectives">Objectives</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#high-level-goals">High level goals</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#conducting-studies">Conducting studies</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#compatibility">Compatibility</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#developer-experience">Developer experience</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#standard-selection">Standard selection</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../node_development/">Node Development</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">MARSH Documentation</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Project</li>
+      <li class="breadcrumb-item active">Rationale</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/marsh-sim/marsh-sim.github.io/edit/master/docs/rationale.md" class="icon icon-github"> Edit on GitHub</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="project-rationale">Project rationale</h1>
+<p>The following section is mostly excerpts from the presentations done in the design phase of the system:</p>
+<ul>
+<li><a href="Proposed%20options%20for%20simulator%20architecture.pdf">Proposed options for the simulator architecture</a></li>
+<li><a href="Simulator%20architecture%20comparison.pdf">Simulator architecture comparison</a></li>
+<li><a href="Standard%20selection%20for%20simulator%20integration.pdf">Standard selection for simulator integration</a></li>
+</ul>
+<h2 id="objectives">Objectives</h2>
+<p>Integrate available hardware and software resources to provide flight
+simulation for the following projects:</p>
+<ul>
+<li>Rotorcraft-Pilot Coupling</li>
+<li>Manned-UnManned Teaming (MUM-T)</li>
+<li>G-Seat motion cueing</li>
+<li>Probable future research, not yet defined</li>
+</ul>
+<p>The requirements expressed as <a href="https://en.wikipedia.org/wiki/User_story">user stories</a></p>
+<h3 id="high-level-goals">High level goals</h3>
+<ul>
+<li><strong>As a</strong> researcher <strong>I can</strong> add new flight models, measurement devices and cueing systems, <strong>so that</strong> the simulator is useful for my research.</li>
+<li><strong>As a</strong> project leader <strong>I can</strong> use the simulator for commercial purposes without paying for any licenses, <strong>so that</strong> I can involve collaborators from industry environment.</li>
+<li><strong>As a</strong> project leader <strong>I can</strong> use the simulator without relying on any external service <strong>so that</strong> I am sure the simulator will work in the future, regardless of an external company</li>
+<li><strong>As a</strong> professor <strong>I can</strong> easily introduce students to the facility, <strong>so that</strong> they do practical projects.</li>
+<li><strong>As a</strong> student <strong>I can</strong> use widespread solutions, standards and libraries, <strong>so that</strong> I get practical experience for my career after graduating.</li>
+</ul>
+<h3 id="conducting-studies">Conducting studies</h3>
+<ul>
+<li><strong>As a</strong> publication or thesis author <strong>I can</strong> easily gather all trial data into a single entity, <strong>so that</strong> they can be analyzed and presented in a written work.</li>
+<li><strong>As a</strong> user conducting trials <strong>I can</strong> control the whole simulator on my own using a single application, <strong>so that</strong> there are less people to schedule for a trial with a test subject, and I can iterate on my own.</li>
+<li><strong>As a</strong> human factors researcher <strong>I can</strong> see simulated view with an imperceptible delay, <strong>so that</strong> a human-in-the-loop piloting is viable.</li>
+<li><strong>As a</strong> human factors researcher <strong>I can</strong> use the motion platform in closed loop mode, <strong>so that</strong> the simulation realism for the pilot is increased.</li>
+</ul>
+<h3 id="compatibility">Compatibility</h3>
+<ul>
+<li><strong>As a</strong> RPC project participant <strong>I can</strong> use Simulink and MBDyn models, <strong>so that</strong> I can reuse work already done in the project.</li>
+<li><strong>As a</strong> human factors researcher <strong>I can</strong> connect the simulation infrastructure to other flight simulation software eg. FlightGear or X-Plane, <strong>so that</strong> off-the-shelf visual models of cockpit and aircraft can be used.</li>
+<li><strong>As a</strong> user working on UAV support for HEMS missions (eg. MUM-T) <strong>I can</strong> communicate multiple aircraft (including unmanned) simultaneously, <strong>so that</strong> I can run shared simulations.</li>
+<li><strong>As a</strong> user of UAVs <strong>I can</strong> connect PX4 simulation, <strong>so that</strong> I can collaborate with the drone lab and industrial partners.</li>
+<li><strong>As a</strong> user of G-Seat <strong>I can</strong> connect the same simulator to moving platform and other cueing devices, <strong>so that</strong> a comparative study can be performed</li>
+</ul>
+<h3 id="developer-experience">Developer experience</h3>
+<ul>
+<li><strong>As a</strong> simulator developer <strong>I can</strong> reuse common elements in different configurations, <strong>so that</strong> there is less work repeated to prepare the simulator for a new study.</li>
+<li><strong>As a</strong> user adding a new device or flight model <strong>I can</strong> read a well-written and detailed documentation, <strong>so that</strong> the development process is feasible.</li>
+</ul>
+<h2 id="standard-selection">Standard selection</h2>
+<p>The most common feedback among reviewers was that using an estabilished solution is really important to not depend on the author to on-board every user. Also online search and chatbots will work much better.</p>
+<p><img alt="XKCD webcomic" src="https://imgs.xkcd.com/comics/standards.png" /></p>
+<p>A minimal comparison was made between the suggested libraries, see the <a href="https://github.com/marsh-sim/comm-library-comparison">comm-library-comparison</a> repository:</p>
+<ul>
+<li>MQTT</li>
+<li>Data Distribution Service</li>
+<li>ZeroMQ</li>
+<li>MAVLink</li>
+</ul>
+<p>The minimal prototype was implementing a trivial flight model using MATLAB Simulink and/or Python, and MAVLink proved to have by far the best support in the former.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../manager/contributing/" class="btn btn-neutral float-left" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../node_development/" class="btn btn-neutral float-right" title="Node Development">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+      <p>© 2024, Marek S. Lukasiewicz, CC-BY 4.0</p>
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/marsh-sim/marsh-sim.github.io" class="fa fa-github" style="color: #fcfcfc"> GitHub</a>
+        </span>
+    
+    
+      <span><a href="../manager/contributing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../node_development/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
