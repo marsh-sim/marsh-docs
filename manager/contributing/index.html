@@ -121,6 +121,7 @@ The application will probably work on other platforms, but only those targets ar
 <li><a href="https://www.qt.io/download-open-source">Qt for Open Source Development</a><ul>
 <li>Qt version <strong>6.5</strong></li>
 <li>Qt Creator</li>
+<li><em>Ubuntu only</em>: Manually install XCB library: <code>sudo apt install libxcb-cursor0</code></li>
 </ul>
 </li>
 <li><em>Optional, but recommended</em>: Qt installs its own CMake, but you may need to install <code>cmake-format</code> manually, with <code>pip install cmakelang</code> or <code>apt install cmake-format</code></li>
@@ -132,6 +133,7 @@ The application will probably work on other platforms, but only those targets ar
 <p>Open the folder where you want to keep the project code, and open it in terminal.
 To clone <a href="https://github.com/marsh-sim/marsh-manager">the repository</a> with its inner modules, add the <code>--recursive</code> flag:</p>
 <pre><code class="language-bash">git clone https://github.com/marsh-sim/marsh-manager.git --recursive
+cd marsh-manager
 </code></pre>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
