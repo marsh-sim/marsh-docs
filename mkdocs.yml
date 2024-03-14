@@ -1,6 +1,7 @@
 site_name: MARSH Documentation
 site_url: https://marsh-sim.github.io/
 repo_url: https://github.com/marsh-sim/marsh-sim.github.io
+edit_uri: edit/main/docs/
 
 site_description: Documentation for projects in MARSH-Sim research simulator
 site_author: Marek S. Lukasiewicz
