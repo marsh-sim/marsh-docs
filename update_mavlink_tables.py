@@ -7,8 +7,10 @@ Doesn't accept any arguments by design.
 
 from os import path as p
 from datetime import datetime
+import re
 import sys
 import subprocess
+from typing import Set, Optional
 
 # allow running from anywhere
 root_p = p.dirname(__file__)
@@ -37,15 +39,24 @@ subprocess.check_call([sys.executable, 'mavlink_gitbook.py'],
                       cwd=p.join(root_p, 'mavlink-repo', 'doc'))
 
 # append generated tables to each document
-for dialect in ['minimal', 'marsh']:
+for dialect in ['common', 'marsh', 'minimal']:
     out_p = p.join(root_p, 'docs', 'mavlink', dialect + '.md')
     table_p = p.join(root_p, 'mavlink-repo', 'doc',
                      'messages', '_html', dialect + '.html')
 
-    # TODO: select only messages and enums in the given file
-    # subset_p = p.join(p.dirname(out_p), dialect + '_subset.txt')
+    print('Adding tables to:', dialect)
 
-    print('Appending tables to:', out_p)
+    # if a file with subset names was provided, only include these identifiers
+    subset_p = p.join(p.dirname(out_p), dialect + '_subset.txt')
+    subset_ids: Optional[Set[str]] = None
+    if p.exists(subset_p):
+        subset_ids = set()
+        with open(subset_p, 'r') as id_file:
+            for line in id_file:
+                line = line.strip()
+                if len(line) > 0 and line[0] != '#':
+                    subset_ids.add(line)
+        print('only a subset including:', ', '.join(subset_ids))
 
     out_lines = []
     with open(out_p, 'r') as content_file:
@@ -69,8 +80,24 @@ for dialect in ['minimal', 'marsh']:
         ))
     out_lines.append('\n')
 
+    # simple filtering without full XML parsing
+    # extract name of enum, command or message
+    id_pattern = re.compile(r'<h3 id="([^"]+)')
+    # last line of any of items above
+    end_string = '</table>'
+
     with open(out_p, 'w') as out_file:
         out_file.writelines(out_lines)
         with open(table_p, 'r') as in_file:
+            include_line = True
             for line in in_file:
-                out_file.write(line)
+                if subset_ids:
+                    m = re.search(id_pattern, line)
+                    if m:
+                        if m.group(1) not in subset_ids:
+                            include_line = False
+
+                if include_line:
+                    out_file.write(line)
+                if subset_ids and end_string in line:
+                    include_line = True
