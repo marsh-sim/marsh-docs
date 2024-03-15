@@ -1,6 +1,10 @@
 # only include enums, commands and messages with these names
 # empty lines and lines starting with # are ignored
 
+# general utility messages
+STATUSTEXT
+SIM_STATE
+
 # parameter protocol
 PARAM_REQUEST_LIST
 PARAM_REQUEST_READ

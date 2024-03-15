@@ -106,7 +106,7 @@
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <hr />
-<p>Generated on 2024-03-15T00:46:01 from commit <a href="https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38">a272aa9</a></p>
+<p>Generated on 2024-03-15T08:48:40 from commit <a href="https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38">a272aa9</a></p>
 <html>
  <body>
   <p>
@@ -396,6 +396,236 @@
       <a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a>
      </td>
      <td>Onboard parameter type.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="SIM_STATE">SIM_STATE (<a href="#SIM_STATE">
+    #108
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Status of simulation environment, if used</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>q1</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 1, w (1 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q2</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 2, x (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q3</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 3, y (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q4</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 4, z (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>roll</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude roll expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude pitch expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude yaw expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>xacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>X acceleration</td>
+    </tr>
+    <tr>
+     <td>yacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Y acceleration</td>
+    </tr>
+    <tr>
+     <td>zacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Z acceleration</td>
+    </tr>
+    <tr>
+     <td>xgyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around X axis</td>
+    </tr>
+    <tr>
+     <td>ygyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around Y axis</td>
+    </tr>
+    <tr>
+     <td>zgyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around Z axis</td>
+    </tr>
+    <tr>
+     <td>lat</td>
+     <td>float</td>
+     <td>deg</td>
+     <td>Latitude (lower precision). Both this and the lat_int field should be set.</td>
+    </tr>
+    <tr>
+     <td>lon</td>
+     <td>float</td>
+     <td>deg</td>
+     <td>Longitude (lower precision). Both this and the lon_int field should be set.</td>
+    </tr>
+    <tr>
+     <td>alt</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Altitude</td>
+    </tr>
+    <tr>
+     <td>std_dev_horz</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Horizontal position standard deviation</td>
+    </tr>
+    <tr>
+     <td>std_dev_vert</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Vertical position standard deviation</td>
+    </tr>
+    <tr>
+     <td>vn</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in north direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td>ve</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in east direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td>vd</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in down direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">lat_int<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int32_t</td>
+     <td>degE7</td>
+     <td>Latitude (higher precision). If 0, recipients should use the lat field value (otherwise this field is preferred).</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">lon_int<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int32_t</td>
+     <td>degE7</td>
+     <td>Longitude (higher precision). If 0, recipients should use the lon field value (otherwise this field is preferred).</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="STATUSTEXT">STATUSTEXT (<a href="#STATUSTEXT">
+    #253
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Status text message. These messages are printed in yellow in the COMM console of QGroundControl. WARNING: They consume quite some bandwidth, so use only for important status and error messages. If implemented wisely, these messages are buffered on the MCU and sent only at a limited rate (e.g. 10 Hz).</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Values</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>severity</td>
+     <td>uint8_t</td>
+     <td>
+      <a href="#MAV_SEVERITY">MAV_SEVERITY</a>
+     </td>
+     <td>Severity of status. Relies on the definitions within RFC-5424.</td>
+    </tr>
+    <tr>
+     <td>text</td>
+     <td>char[50]</td>
+     <td>
+     </td>
+     <td>Status text message, without null termination character</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">id<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint16_t</td>
+     <td>
+     </td>
+     <td>Unique (opaque) identifier for this statustext message.  May be used to reassemble a logical long-statustext message from a sequence of chunks.  A value of zero indicates this is the only chunk in the sequence and the message can be emitted immediately.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">chunk_seq<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>This chunk's sequence number; indexing is from zero.  Any null character in the text field is taken to mean this was the last chunk.</td>
     </tr>
    </tbody>
   </table>
