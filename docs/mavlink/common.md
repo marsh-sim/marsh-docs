@@ -9,13 +9,31 @@ Before designing a new message, first check the original documentation linked ab
 
 ---
 
-Generated on 2024-03-15T01:36:59 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
+Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
 
+<h2 id="definition_list">Definition list</h2>
+<ul>
+ <li><a href="#enums">Enums</a><ul>
+  <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>
+  <li><a href="#MAV_SEVERITY">MAV_SEVERITY</a></li>
+ </ul></li>
+ <li><a href="#mav_commands">Mav Commands</a><ul>
+ </ul></li>
+ <li><a href="#messages">Messages</a><ul>
+  <li><a href="#PARAM_REQUEST_READ">PARAM_REQUEST_READ</a></li>
+  <li><a href="#PARAM_REQUEST_LIST">PARAM_REQUEST_LIST</a></li>
+  <li><a href="#PARAM_VALUE">PARAM_VALUE</a></li>
+  <li><a href="#PARAM_SET">PARAM_SET</a></li>
+  <li><a href="#MANUAL_CONTROL">MANUAL_CONTROL</a></li>
+  <li><a href="#SIM_STATE">SIM_STATE</a></li>
+  <li><a href="#STATUSTEXT">STATUSTEXT</a></li>
+ </ul></li>
+</ul>
 <html>
  <body>
   <p>
    <strong>MAVLink Include Files:</strong>
-   <a href="standard.md">standard.xml</a>
+   <a href="https://mavlink.io/en/messages/standard.html">standard.xml</a>
   </p>
   <h2>MAVLink Protocol Version</h2>
   <p>The current MAVLink version is 2.3. The minor version numbers (after the dot) range from 1-255.</p>
@@ -104,6 +122,78 @@ Generated on 2024-03-15T01:36:59 from commit [a272aa9](https://github.com/marsh-
       <a href="#MAV_PARAM_TYPE_REAL64">MAV_PARAM_TYPE_REAL64</a>
      </td>
      <td>64-bit floating-point</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MAV_SEVERITY">MAV_SEVERITY</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>Indicates the severity level, generally used for status messages to indicate their relative urgency. Based on RFC-5424 using expanded definitions at: http://www.kiwisyslog.com/kb/info:-syslog-message-levels/.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="MAV_SEVERITY_EMERGENCY">
+     <td>0</td>
+     <td>
+      <a href="#MAV_SEVERITY_EMERGENCY">MAV_SEVERITY_EMERGENCY</a>
+     </td>
+     <td>System is unusable. This is a "panic" condition.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_ALERT">
+     <td>1</td>
+     <td>
+      <a href="#MAV_SEVERITY_ALERT">MAV_SEVERITY_ALERT</a>
+     </td>
+     <td>Action should be taken immediately. Indicates error in non-critical systems.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_CRITICAL">
+     <td>2</td>
+     <td>
+      <a href="#MAV_SEVERITY_CRITICAL">MAV_SEVERITY_CRITICAL</a>
+     </td>
+     <td>Action must be taken immediately. Indicates failure in a primary system.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_ERROR">
+     <td>3</td>
+     <td>
+      <a href="#MAV_SEVERITY_ERROR">MAV_SEVERITY_ERROR</a>
+     </td>
+     <td>Indicates an error in secondary/redundant systems.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_WARNING">
+     <td>4</td>
+     <td>
+      <a href="#MAV_SEVERITY_WARNING">MAV_SEVERITY_WARNING</a>
+     </td>
+     <td>Indicates about a possible future error if this is not resolved within a given timeframe. Example would be a low battery warning.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_NOTICE">
+     <td>5</td>
+     <td>
+      <a href="#MAV_SEVERITY_NOTICE">MAV_SEVERITY_NOTICE</a>
+     </td>
+     <td>An unusual event has occurred, though not an error condition. This should be investigated for the root cause.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_INFO">
+     <td>6</td>
+     <td>
+      <a href="#MAV_SEVERITY_INFO">MAV_SEVERITY_INFO</a>
+     </td>
+     <td>Normal operational messages. Useful for logging. No action is required for these messages.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_DEBUG">
+     <td>7</td>
+     <td>
+      <a href="#MAV_SEVERITY_DEBUG">MAV_SEVERITY_DEBUG</a>
+     </td>
+     <td>Useful non-operational messages that can assist in debugging. These should not occur during normal operation.</td>
     </tr>
    </tbody>
   </table>
@@ -300,6 +390,366 @@ Generated on 2024-03-15T01:36:59 from commit [a272aa9](https://github.com/marsh-
       <a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a>
      </td>
      <td>Onboard parameter type.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MANUAL_CONTROL">MANUAL_CONTROL (<a href="#MANUAL_CONTROL">
+    #69
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>This message provides an API for manually controlling the vehicle using standard joystick axes nomenclature, along with a joystick-like input device. Unused axes can be disabled and buttons states are transmitted as individual on/off bits of a bitmask</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>target</td>
+     <td>uint8_t</td>
+     <td>The system to be controlled.</td>
+    </tr>
+    <tr>
+     <td>x</td>
+     <td>int16_t</td>
+     <td>X-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to forward(1000)-backward(-1000) movement on a joystick and the pitch of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>y</td>
+     <td>int16_t</td>
+     <td>Y-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to left(-1000)-right(1000) movement on a joystick and the roll of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>z</td>
+     <td>int16_t</td>
+     <td>Z-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a separate slider movement with maximum being 1000 and minimum being -1000 on a joystick and the thrust of a vehicle. Positive values are positive thrust, negative values are negative thrust.</td>
+    </tr>
+    <tr>
+     <td>r</td>
+     <td>int16_t</td>
+     <td>R-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a twisting of the joystick, with counter-clockwise being 1000 and clockwise being -1000, and the yaw of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>buttons</td>
+     <td>uint16_t</td>
+     <td>A bitfield corresponding to the joystick buttons' 0-15 current state, 1 for pressed, 0 for released. The lowest bit corresponds to Button 1.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">buttons2<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint16_t</td>
+     <td>A bitfield corresponding to the joystick buttons' 16-31 current state, 1 for pressed, 0 for released. The lowest bit corresponds to Button 16.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">enabled_extensions<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint8_t</td>
+     <td>Set bits to 1 to indicate which of the following extension fields contain valid data: bit 0: pitch, bit 1: roll, bit 2: aux1, bit 3: aux2, bit 4: aux3, bit 5: aux4, bit 6: aux5, bit 7: aux6</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">s<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Pitch-only-axis, normalized to the range [-1000,1000]. Generally corresponds to pitch on vehicles with additional degrees of freedom. Valid if bit 0 of enabled_extensions field is set. Set to 0 if invalid.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">t<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Roll-only-axis, normalized to the range [-1000,1000]. Generally corresponds to roll on vehicles with additional degrees of freedom. Valid if bit 1 of enabled_extensions field is set. Set to 0 if invalid.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux1<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 1. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 2 of enabled_extensions field is set. 0 if bit 2 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux2<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 2. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 3 of enabled_extensions field is set. 0 if bit 3 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux3<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 3. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 4 of enabled_extensions field is set. 0 if bit 4 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux4<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 4. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 5 of enabled_extensions field is set. 0 if bit 5 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux5<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 5. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 6 of enabled_extensions field is set. 0 if bit 6 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux6<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 6. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 7 of enabled_extensions field is set. 0 if bit 7 is unset.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="SIM_STATE">SIM_STATE (<a href="#SIM_STATE">
+    #108
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Status of simulation environment, if used</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>q1</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 1, w (1 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q2</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 2, x (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q3</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 3, y (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>q4</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>True attitude quaternion component 4, z (0 in null-rotation)</td>
+    </tr>
+    <tr>
+     <td>roll</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude roll expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude pitch expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Attitude yaw expressed as Euler angles, not recommended except for human-readable outputs</td>
+    </tr>
+    <tr>
+     <td>xacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>X acceleration</td>
+    </tr>
+    <tr>
+     <td>yacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Y acceleration</td>
+    </tr>
+    <tr>
+     <td>zacc</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Z acceleration</td>
+    </tr>
+    <tr>
+     <td>xgyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around X axis</td>
+    </tr>
+    <tr>
+     <td>ygyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around Y axis</td>
+    </tr>
+    <tr>
+     <td>zgyro</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Angular speed around Z axis</td>
+    </tr>
+    <tr>
+     <td>lat</td>
+     <td>float</td>
+     <td>deg</td>
+     <td>Latitude (lower precision). Both this and the lat_int field should be set.</td>
+    </tr>
+    <tr>
+     <td>lon</td>
+     <td>float</td>
+     <td>deg</td>
+     <td>Longitude (lower precision). Both this and the lon_int field should be set.</td>
+    </tr>
+    <tr>
+     <td>alt</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Altitude</td>
+    </tr>
+    <tr>
+     <td>std_dev_horz</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Horizontal position standard deviation</td>
+    </tr>
+    <tr>
+     <td>std_dev_vert</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Vertical position standard deviation</td>
+    </tr>
+    <tr>
+     <td>vn</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in north direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td>ve</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in east direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td>vd</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>True velocity in down direction in earth-fixed NED frame</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">lat_int<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int32_t</td>
+     <td>degE7</td>
+     <td>Latitude (higher precision). If 0, recipients should use the lat field value (otherwise this field is preferred).</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">lon_int<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int32_t</td>
+     <td>degE7</td>
+     <td>Longitude (higher precision). If 0, recipients should use the lon field value (otherwise this field is preferred).</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="STATUSTEXT">STATUSTEXT (<a href="#STATUSTEXT">
+    #253
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Status text message. These messages are printed in yellow in the COMM console of QGroundControl. WARNING: They consume quite some bandwidth, so use only for important status and error messages. If implemented wisely, these messages are buffered on the MCU and sent only at a limited rate (e.g. 10 Hz).</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Values</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>severity</td>
+     <td>uint8_t</td>
+     <td>
+      <a href="#MAV_SEVERITY">MAV_SEVERITY</a>
+     </td>
+     <td>Severity of status. Relies on the definitions within RFC-5424.</td>
+    </tr>
+    <tr>
+     <td>text</td>
+     <td>char[50]</td>
+     <td>
+     </td>
+     <td>Status text message, without null termination character</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">id<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint16_t</td>
+     <td>
+     </td>
+     <td>Unique (opaque) identifier for this statustext message.  May be used to reassemble a logical long-statustext message from a sequence of chunks.  A value of zero indicates this is the only chunk in the sequence and the message can be emitted immediately.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">chunk_seq<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>This chunk's sequence number; indexing is from zero.  Any null character in the text field is taken to mean this was the last chunk.</td>
     </tr>
    </tbody>
   </table>

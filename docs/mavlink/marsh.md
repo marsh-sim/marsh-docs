@@ -12,13 +12,23 @@ When in need of a definition for a given functionality which is not covered here
 
 ---
 
-Generated on 2024-03-15T01:36:59 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
+Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
 
+<h2 id="definition_list">Definition list</h2>
+<ul>
+ <li><a href="#enums">Enums</a><ul>
+  <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
+ </ul></li>
+ <li><a href="#mav_commands">Mav Commands</a><ul>
+ </ul></li>
+ <li><a href="#messages">Messages</a><ul>
+ </ul></li>
+</ul>
 <html>
  <body>
   <p>
    <strong>MAVLink Include Files:</strong>
-   <a href="common.md">common.xml</a>
+   <a href="https://mavlink.io/en/messages/common.html">common.xml</a>
   </p>
   <h2>MAVLink Protocol Version</h2>
   <p>The current MAVLink version is 2.1. The minor version numbers (after the dot) range from 1-255.</p>

@@ -2,17 +2,34 @@
 
 These are the messages which must be supported by any MAVLink system, reproduced from the original documentation at [mavlink.io – MAVLink Minimal Set](https://mavlink.io/en/messages/minimal.html).
 
-The HEARTBEAT message is of special interest here, since it is used to communicate the node state to and from the [Manager](../manager/README.md) application.
+The [HEARTBEAT](#HEARTBEAT) message is of special interest here, since it is used to communicate the node state to and from the [Manager](../manager/README.md) application.
 
-Generally the nodes in the simulator system are expected to send MAV_AUTOPILOT_INVALID. When choosing a component id, first see if there is a more specific one in [MARSH_COMPONENT_ID](./marsh.md), otherwise use the standard values here.
+Generally the nodes in the simulator system are expected to send [MAV_AUTOPILOT_INVALID](#MAV_AUTOPILOT_INVALID). When choosing a component id, first see if there is a more specific one in [MARSH_COMPONENT](./marsh.md#MARSH_COMPONENT), otherwise use the standard values here.
 
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 ---
 
-Generated on 2024-03-15T01:36:59 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
+Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
 
+<h2 id="definition_list">Definition list</h2>
+<ul>
+ <li><a href="#enums">Enums</a><ul>
+  <li><a href="#MAV_AUTOPILOT">MAV_AUTOPILOT</a></li>
+  <li><a href="#MAV_TYPE">MAV_TYPE</a></li>
+  <li><a href="#MAV_MODE_FLAG">MAV_MODE_FLAG</a></li>
+  <li><a href="#MAV_MODE_FLAG_DECODE_POSITION">MAV_MODE_FLAG_DECODE_POSITION</a></li>
+  <li><a href="#MAV_STATE">MAV_STATE</a></li>
+  <li><a href="#MAV_COMPONENT">MAV_COMPONENT</a></li>
+ </ul></li>
+ <li><a href="#mav_commands">Mav Commands</a><ul>
+ </ul></li>
+ <li><a href="#messages">Messages</a><ul>
+  <li><a href="#HEARTBEAT">HEARTBEAT</a></li>
+  <li><a href="#PROTOCOL_VERSION">PROTOCOL_VERSION</a></li>
+ </ul></li>
+</ul>
 <html>
  <body>
   <h2>MAVLink Protocol Version</h2>
