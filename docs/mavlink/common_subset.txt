@@ -1,9 +1,14 @@
 # only include enums, commands and messages with these names
 # empty lines and lines starting with # are ignored
+# remember to also include all enums used by a given message
+
+# messages useful for simulation
+SIM_STATE
+MANUAL_CONTROL
 
 # general utility messages
 STATUSTEXT
-SIM_STATE
+MAV_SEVERITY
 
 # parameter protocol
 PARAM_REQUEST_LIST

@@ -16,7 +16,7 @@ jobs:
           cache: 'pip' # caching pip dependencies
       - run: pip install -r requirements.txt
       - name: Update MAVLink tables
-        run: python update_mavlink_tables.py
+        run: python update_mavlink_tables.py --ignore-errors
       - name: Build HTML
         uses: Tiryoh/actions-mkdocs@v0
         with:
