@@ -14,10 +14,10 @@ nav:
     - Contributing: manager/contributing.md
   - Developer Guide:
     - Node Development: node_development.md
-    - MAVLink definitions:
-      - Minimal Set: mavlink/minimal.md
-      - Subset of Common Set: mavlink/common.md
-      - MARSH Dialect: mavlink/marsh.md
+  - MAVLink definitions:
+    - Minimal Set: mavlink/minimal.md
+    - Subset of Common Set: mavlink/common.md
+    - MARSH Dialect: mavlink/marsh.md
   - Project:
     - Rationale: rationale.md
     - Documentation: documentation.md

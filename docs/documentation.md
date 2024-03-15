@@ -34,6 +34,11 @@ mkdocs serve
 
 Content is written in Markdown and built to HTML with [MkDocs](https://www.mkdocs.org/). Markdown files should preferably be formatted with [markdownlint extension for VS Code](https://marketplace.visualstudio.com/items?itemName=DavidAnson.vscode-markdownlint).
 
+The pages in the "MAVLink Definitions" section contain an initial part written normally, which is followed by automatically generated tables.
+The tables are (re-)generated with the `update_mavlink_tables.py` Python script, which should do the complete process of getting the definitions, running the original generator used for MAVLink documentation, and then replacing a relevant part of the pages.
+This script will be run when publicly deploying updates of the `main` branch.
+The generated content of the files in this repository should be commited when there are significant changes in the dialect, for convenience of offline development and reference.
+
 ### Recommended resources
 
 - [Make a Readme](https://www.makeareadme.com/)
@@ -47,6 +52,8 @@ The goal for this setup of the documentation was to make it simple to update to 
 The web pages are generated with MkDocs, because it uses Python which most colleagues already know. The alternatives used by related projects like GitBook (for MAVLink Dev Guide) are not free anymore, and VuePress (for PX4) requires NodeJS. Initially the more popular Sphinx was chosen, but didn't play nicely with Markdown files. This was deemed more important, since we already use it for a README.md file in every repository, is much more popular than reStructured Text, and has simpler syntax.
 
 Hosting the page through GitHub Pages and building through GitHub Actions mean there are no dedicated servers needed to be maintained by users. A fully open-source solution independent of a specific for-profit company would be preferred, but at least this can serve as introduction to contributing to other software outside of the University.
+
+An early goal for documentation of the dialect was to provide a user experience very close to using the standard messages. The files for MAVLink definitions are re-generated every time the page is published, but can also be updated in the repository. This was chosen to keep the repository simple (no submodules), and always up to date with the newest definitions in the fork. The generated content isn't ignored by git, so the results are the same when working with the repository offline.
 
 ## License
 
