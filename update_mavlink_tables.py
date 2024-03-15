@@ -73,12 +73,11 @@ for dialect in ['common', 'marsh', 'minimal']:
                 'line with comment about auto-generated content required', out_p)
 
     date = datetime.now().replace(microsecond=0)
-    out_lines.append('\n')
+    out_lines.append('\n---\n')
     out_lines.append(
-        'Generated on {} from commit [{}](https://github.com/marsh-sim/mavlink/tree/{})\n'.format(
+        '\nGenerated on {} from commit [{}](https://github.com/marsh-sim/mavlink/tree/{})\n\n'.format(
             date.isoformat(), mavlink_hash[:7], mavlink_hash
         ))
-    out_lines.append('\n')
 
     # simple filtering without full XML parsing
     # extract name of enum, command or message
