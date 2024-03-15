@@ -6,6 +6,7 @@ Doesn't accept any arguments by design.
 """
 
 import argparse
+from collections import OrderedDict
 from datetime import datetime
 from os import path as p
 import re
@@ -101,38 +102,69 @@ for dialect in ['common', 'marsh', 'minimal']:
     # extract reference to any item
     ref_pattern = re.compile(r'<a href="#([A-Z\d_]+)')
 
+    # links which point to other dialects will be changed to mavlink.io
+    dialect_link_pattern = re.compile(r'<a href="([A-Za-z\d_]+).md"')
+
+    out_lines.append('<h2 id="definition_list">Definition list</h2>\n')
+    # where to insert for table of contents
+    toc_line = len(out_lines)
+
+    # data to be written in toc
+    contents = OrderedDict()
+    contents['enums'] = list()
+    contents['mav_commands'] = list()
+    contents['messages'] = list()
+
+    with open(table_p, 'r') as in_file:
+        include_line = True
+        current_section = ''
+        current_id = ''
+        for line in in_file:
+            m = re.search(section_pattern, line)
+            if m:
+                current_section = m.group(1)
+
+            m = re.search(id_pattern, line)
+            if m:
+                current_id = m.group(1)
+                if subset_ids:
+                    if current_id not in subset_ids:
+                        include_line = False
+                    else:
+                        subset_ids[current_id] = True
+                if include_line:
+                    contents[current_section].append(current_id)
+
+            m = re.search(ref_pattern, line)
+            if include_line and current_section != "enums" and m and subset_ids:
+                if m.group(1) not in subset_ids:
+                    print('ERROR: identifier', m.group(1),
+                          'referenced in', current_id, 'but not included', file=sys.stderr)
+                    errors_found = True
+
+            if include_line:
+                out_lines.append(
+                    re.sub(dialect_link_pattern,
+                           r'<a href="https://mavlink.io/en/messages/\1.html"', line))
+            if subset_ids and end_string in line:
+                include_line = True
+                current_id = ''
+
+    toc_lines = list()
+    toc_lines.append('<ul>\n')
+    for section, items in contents.items():
+        name = section.replace('_', ' ').title()
+        toc_lines.append(f' <li><a href="#{section}">{name}</a><ul>\n')
+        for item in items:
+            toc_lines.append(f'  <li><a href="#{item}">{item}</a></li>\n')
+        toc_lines.append(' </ul></li>\n')
+    toc_lines.append('</ul>\n')
+
+    # insert the list starting from this position
+    out_lines[toc_line:toc_line] = toc_lines
+
     with open(out_p, 'w') as out_file:
         out_file.writelines(out_lines)
-        with open(table_p, 'r') as in_file:
-            include_line = True
-            current_section = ''
-            current_id = ''
-            for line in in_file:
-                if subset_ids:
-                    m = re.search(section_pattern, line)
-                    if m:
-                        current_section = m.group(1)
-
-                    m = re.search(id_pattern, line)
-                    if m:
-                        current_id = m.group(1)
-                        if current_id not in subset_ids:
-                            include_line = False
-                        else:
-                            subset_ids[current_id] = True
-
-                    m = re.search(ref_pattern, line)
-                    if include_line and current_section != "enums" and m:
-                        if m.group(1) not in subset_ids:
-                            print('ERROR: identifier', m.group(1),
-                                  'referenced in', current_id, 'but not included', file=sys.stderr)
-                            errors_found = True
-
-                if include_line:
-                    out_file.write(line)
-                if subset_ids and end_string in line:
-                    include_line = True
-                    current_id = ''
 
     if subset_ids:
         for id, found in subset_ids.items():
