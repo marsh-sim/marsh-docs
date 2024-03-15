@@ -1,0 +1,19 @@
+/*
+class sortable is added by XSLT to every generated table
+this is the style originally added to every dialect md file
+*/
+table.sortable td {
+  vertical-align: top !important;
+}
+
+/* middle column in three column table, matches only Field Name in Enum */
+table.sortable td:nth-child(2):nth-last-child(2) {
+  min-width: 12em;
+  word-break: break-all !important;
+  white-space: normal !important;
+}
+
+/* last column is always Description */
+table.sortable td:last-child {
+  white-space: normal !important;
+}

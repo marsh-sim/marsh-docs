@@ -1,0 +1,9 @@
+# only include enums, commands and messages with these names
+# empty lines and lines starting with # are ignored
+
+# parameter protocol
+PARAM_REQUEST_LIST
+PARAM_REQUEST_READ
+PARAM_SET
+PARAM_VALUE
+MAV_PARAM_TYPE
