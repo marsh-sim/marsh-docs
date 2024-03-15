@@ -106,7 +106,7 @@
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <hr />
-<p>Generated on 2024-03-15T08:48:40 from commit <a href="https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38">a272aa9</a></p>
+<p>Generated on 2024-03-15T10:42:24 from commit <a href="https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38">a272aa9</a></p>
 <html>
  <body>
   <p>
@@ -200,6 +200,78 @@
       <a href="#MAV_PARAM_TYPE_REAL64">MAV_PARAM_TYPE_REAL64</a>
      </td>
      <td>64-bit floating-point</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MAV_SEVERITY">MAV_SEVERITY</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>Indicates the severity level, generally used for status messages to indicate their relative urgency. Based on RFC-5424 using expanded definitions at: http://www.kiwisyslog.com/kb/info:-syslog-message-levels/.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="MAV_SEVERITY_EMERGENCY">
+     <td>0</td>
+     <td>
+      <a href="#MAV_SEVERITY_EMERGENCY">MAV_SEVERITY_EMERGENCY</a>
+     </td>
+     <td>System is unusable. This is a "panic" condition.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_ALERT">
+     <td>1</td>
+     <td>
+      <a href="#MAV_SEVERITY_ALERT">MAV_SEVERITY_ALERT</a>
+     </td>
+     <td>Action should be taken immediately. Indicates error in non-critical systems.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_CRITICAL">
+     <td>2</td>
+     <td>
+      <a href="#MAV_SEVERITY_CRITICAL">MAV_SEVERITY_CRITICAL</a>
+     </td>
+     <td>Action must be taken immediately. Indicates failure in a primary system.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_ERROR">
+     <td>3</td>
+     <td>
+      <a href="#MAV_SEVERITY_ERROR">MAV_SEVERITY_ERROR</a>
+     </td>
+     <td>Indicates an error in secondary/redundant systems.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_WARNING">
+     <td>4</td>
+     <td>
+      <a href="#MAV_SEVERITY_WARNING">MAV_SEVERITY_WARNING</a>
+     </td>
+     <td>Indicates about a possible future error if this is not resolved within a given timeframe. Example would be a low battery warning.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_NOTICE">
+     <td>5</td>
+     <td>
+      <a href="#MAV_SEVERITY_NOTICE">MAV_SEVERITY_NOTICE</a>
+     </td>
+     <td>An unusual event has occurred, though not an error condition. This should be investigated for the root cause.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_INFO">
+     <td>6</td>
+     <td>
+      <a href="#MAV_SEVERITY_INFO">MAV_SEVERITY_INFO</a>
+     </td>
+     <td>Normal operational messages. Useful for logging. No action is required for these messages.</td>
+    </tr>
+    <tr id="MAV_SEVERITY_DEBUG">
+     <td>7</td>
+     <td>
+      <a href="#MAV_SEVERITY_DEBUG">MAV_SEVERITY_DEBUG</a>
+     </td>
+     <td>Useful non-operational messages that can assist in debugging. These should not occur during normal operation.</td>
     </tr>
    </tbody>
   </table>
@@ -396,6 +468,136 @@
       <a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a>
      </td>
      <td>Onboard parameter type.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MANUAL_CONTROL">MANUAL_CONTROL (<a href="#MANUAL_CONTROL">
+    #69
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>This message provides an API for manually controlling the vehicle using standard joystick axes nomenclature, along with a joystick-like input device. Unused axes can be disabled and buttons states are transmitted as individual on/off bits of a bitmask</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>target</td>
+     <td>uint8_t</td>
+     <td>The system to be controlled.</td>
+    </tr>
+    <tr>
+     <td>x</td>
+     <td>int16_t</td>
+     <td>X-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to forward(1000)-backward(-1000) movement on a joystick and the pitch of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>y</td>
+     <td>int16_t</td>
+     <td>Y-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to left(-1000)-right(1000) movement on a joystick and the roll of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>z</td>
+     <td>int16_t</td>
+     <td>Z-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a separate slider movement with maximum being 1000 and minimum being -1000 on a joystick and the thrust of a vehicle. Positive values are positive thrust, negative values are negative thrust.</td>
+    </tr>
+    <tr>
+     <td>r</td>
+     <td>int16_t</td>
+     <td>R-axis, normalized to the range [-1000,1000]. A value of INT16_MAX indicates that this axis is invalid. Generally corresponds to a twisting of the joystick, with counter-clockwise being 1000 and clockwise being -1000, and the yaw of a vehicle.</td>
+    </tr>
+    <tr>
+     <td>buttons</td>
+     <td>uint16_t</td>
+     <td>A bitfield corresponding to the joystick buttons' 0-15 current state, 1 for pressed, 0 for released. The lowest bit corresponds to Button 1.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">buttons2<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint16_t</td>
+     <td>A bitfield corresponding to the joystick buttons' 16-31 current state, 1 for pressed, 0 for released. The lowest bit corresponds to Button 16.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">enabled_extensions<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>uint8_t</td>
+     <td>Set bits to 1 to indicate which of the following extension fields contain valid data: bit 0: pitch, bit 1: roll, bit 2: aux1, bit 3: aux2, bit 4: aux3, bit 5: aux4, bit 6: aux5, bit 7: aux6</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">s<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Pitch-only-axis, normalized to the range [-1000,1000]. Generally corresponds to pitch on vehicles with additional degrees of freedom. Valid if bit 0 of enabled_extensions field is set. Set to 0 if invalid.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">t<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Roll-only-axis, normalized to the range [-1000,1000]. Generally corresponds to roll on vehicles with additional degrees of freedom. Valid if bit 1 of enabled_extensions field is set. Set to 0 if invalid.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux1<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 1. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 2 of enabled_extensions field is set. 0 if bit 2 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux2<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 2. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 3 of enabled_extensions field is set. 0 if bit 3 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux3<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 3. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 4 of enabled_extensions field is set. 0 if bit 4 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux4<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 4. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 5 of enabled_extensions field is set. 0 if bit 5 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux5<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 5. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 6 of enabled_extensions field is set. 0 if bit 6 is unset.</td>
+    </tr>
+    <tr>
+     <td style="color:blue;">aux6<a href="#mav2_extension_field" title="MAVLink2 extension field">
+       **
+      </a>
+     </td>
+     <td>int16_t</td>
+     <td>Aux continuous input field 6. Normalized in the range [-1000,1000]. Purpose defined by recipient. Valid data if bit 7 of enabled_extensions field is set. 0 if bit 7 is unset.</td>
     </tr>
    </tbody>
   </table>
