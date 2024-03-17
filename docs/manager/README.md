@@ -15,6 +15,8 @@ It is meant as a single tool to provide:
 Start the application executable, either `marsh-mgr` or `marsh-mgr.exe`.
 If other nodes are running on different computers, configure "manager address" to IP address of the computer running the manager.
 
+![screenshot of MARSH Manager window](main_window.png)
+
 ### Saving data
 
 The user can choose a folder to save the data, the files are named depending on the logging start time to avoid overwriting previous saves.
@@ -38,7 +40,6 @@ There are multiple external tools available for viewing the logs, notable exampl
 
 The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:
 
-- Display time saving to log
 - Add a way to send and log messages originating from manager
 - Showing messages sent to each client in Network View
 - Support for [Parameter Protocol](https://mavlink.io/en/services/parameter.html):
