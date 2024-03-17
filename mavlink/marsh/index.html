@@ -108,7 +108,7 @@ All other projects need to generate and appropriate libraries, following the <a 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <hr />
-<p>Generated on 2024-03-17T13:04:30 from commit <a href="https://github.com/marsh-sim/mavlink/tree/3fcdd25697de2bb66bb316eb9ddd93e2601c4d79">3fcdd25</a></p>
+<p>Generated on 2024-03-17T14:50:02 from commit <a href="https://github.com/marsh-sim/mavlink/tree/cd369c9e442eb6b315cf34e994dd19c33a237822">cd369c9</a></p>
 <h2 id="definition_list">Definition list</h2>
 <ul>
  <li><a href="#enums">Enums</a><ul>
@@ -372,7 +372,7 @@ All other projects need to generate and appropriate libraries, following the <a 
   <p>
    <a href="#enums">
     [Enum]
-   </a>Error codes specific to eMotion Motion System from Bosch Rexroth.</p>
+   </a>Error codes specific to eMotion Motion System from Bosch Rexroth. Details described in GENERIC-02-30-7100-IML-0700 document.</p>
   <table class="sortable">
    <thead>
     <tr>
@@ -382,12 +382,564 @@ All other projects need to generate and appropriate libraries, following the <a 
     </tr>
    </thead>
    <tbody>
-    <tr id="REXROTH_MOTION_PLATFORM_ERROR_OK">
+    <tr id="REXROTH_ERR_OK">
      <td>0</td>
      <td>
-      <a href="#REXROTH_MOTION_PLATFORM_ERROR_OK">REXROTH_MOTION_PLATFORM_ERROR_OK</a>
+      <a href="#REXROTH_ERR_OK">REXROTH_ERR_OK</a>
      </td>
      <td>No error.</td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_EXCESSIVE_TORQUE_DIFFERENCE">
+     <td>059</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_EXCESSIVE_TORQUE_DIFFERENCE">REXROTH_ERR_WA_EXCESSIVE_TORQUE_DIFFERENCE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_REMOTE_ACCESS_ACTIVE">
+     <td>060</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_REMOTE_ACCESS_ACTIVE">REXROTH_ERR_WA_REMOTE_ACCESS_ACTIVE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_NON_CRITICAL_CIRCUIT_BREAKER">
+     <td>061</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_NON_CRITICAL_CIRCUIT_BREAKER">REXROTH_ERR_WA_NON_CRITICAL_CIRCUIT_BREAKER</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_SEAL_CHECK_POSITION_HIGH">
+     <td>062</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_SEAL_CHECK_POSITION_HIGH">REXROTH_ERR_WA_SEAL_CHECK_POSITION_HIGH</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_SEAL_CHECK_POSITION_LOW">
+     <td>063</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_SEAL_CHECK_POSITION_LOW">REXROTH_ERR_WA_SEAL_CHECK_POSITION_LOW</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_FRAMECOUNTER_FAIL">
+     <td>064</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_FRAMECOUNTER_FAIL">REXROTH_ERR_WA_FRAMECOUNTER_FAIL</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_UNEXPECTED_STARTUP">
+     <td>065</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_UNEXPECTED_STARTUP">REXROTH_ERR_WA_UNEXPECTED_STARTUP</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_UPS_BATTERY_FAIL">
+     <td>075</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_UPS_BATTERY_FAIL">REXROTH_ERR_WA_UPS_BATTERY_FAIL</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_PLATFORM_SETTLE_ERROR">
+     <td>077</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_PLATFORM_SETTLE_ERROR">REXROTH_ERR_WA_PLATFORM_SETTLE_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_BLEEDER_TEMPERATURE">
+     <td>088</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_BLEEDER_TEMPERATURE">REXROTH_ERR_WA_BLEEDER_TEMPERATURE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_PRESSURE_HIGH">
+     <td>092</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_PRESSURE_HIGH">REXROTH_ERR_WA_PRESSURE_HIGH</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_PRESSURE_LOW">
+     <td>093</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_PRESSURE_LOW">REXROTH_ERR_WA_PRESSURE_LOW</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_BRAKE_UPS_POWER_WARNING">
+     <td>094</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_BRAKE_UPS_POWER_WARNING">REXROTH_ERR_WA_BRAKE_UPS_POWER_WARNING</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_MOTOR_TEMPERATURE_WARNING">
+     <td>095</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_MOTOR_TEMPERATURE_WARNING">REXROTH_ERR_WA_MOTOR_TEMPERATURE_WARNING</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_WA_ES_BUFFER_CHECK_TIMEOUT">
+     <td>207</td>
+     <td>
+      <a href="#REXROTH_ERR_WA_ES_BUFFER_CHECK_TIMEOUT">REXROTH_ERR_WA_ES_BUFFER_CHECK_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_FORCED_DISENGAGE_CIRCUIT_OPENED">
+     <td>096</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_FORCED_DISENGAGE_CIRCUIT_OPENED">REXROTH_ERR_FD_FORCED_DISENGAGE_CIRCUIT_OPENED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_INVALID_MODE">
+     <td>097</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_INVALID_MODE">REXROTH_ERR_FD_INVALID_MODE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_HOST_DATA_TIME_OUT">
+     <td>098</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_HOST_DATA_TIME_OUT">REXROTH_ERR_FD_HOST_DATA_TIME_OUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_FRAMECOUNTER_FAIL">
+     <td>099</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_FRAMECOUNTER_FAIL">REXROTH_ERR_FD_FRAMECOUNTER_FAIL</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_DOORS_AND_PADS_CIRCUIT_OPENED">
+     <td>101</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_DOORS_AND_PADS_CIRCUIT_OPENED">REXROTH_ERR_FD_DOORS_AND_PADS_CIRCUIT_OPENED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_LOADCHECK_SYSTEM_OVERLOAD">
+     <td>102</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_LOADCHECK_SYSTEM_OVERLOAD">REXROTH_ERR_FD_LOADCHECK_SYSTEM_OVERLOAD</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_LOADCHECK_ACTUATOR_OVERLOAD">
+     <td>103</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_LOADCHECK_ACTUATOR_OVERLOAD">REXROTH_ERR_FD_LOADCHECK_ACTUATOR_OVERLOAD</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_BRAKE_UPS_POWER_ERROR">
+     <td>104</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_BRAKE_UPS_POWER_ERROR">REXROTH_ERR_FD_BRAKE_UPS_POWER_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_MOTOR_TEMPERATURE_ERROR">
+     <td>105</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_MOTOR_TEMPERATURE_ERROR">REXROTH_ERR_FD_MOTOR_TEMPERATURE_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_MOTION_ENABLE_CIRCUIT_OPENED">
+     <td>107</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_MOTION_ENABLE_CIRCUIT_OPENED">REXROTH_ERR_FD_MOTION_ENABLE_CIRCUIT_OPENED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_HOST_DATA_INVALID">
+     <td>110</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_HOST_DATA_INVALID">REXROTH_ERR_FD_HOST_DATA_INVALID</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_LOADCHECK_ACTUATOR_UNDERLOAD">
+     <td>113</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_LOADCHECK_ACTUATOR_UNDERLOAD">REXROTH_ERR_FD_LOADCHECK_ACTUATOR_UNDERLOAD</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_HIGH">
+     <td>115</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_HIGH">REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_HIGH</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_LOW">
+     <td>116</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_LOW">REXROTH_ERR_FD_SEAL_CHECK_POSITION_TOO_LOW</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_RAMP_NOT_UP">
+     <td>117</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_RAMP_NOT_UP">REXROTH_ERR_FD_RAMP_NOT_UP</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_DRIVE_WARNING">
+     <td>120</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_DRIVE_WARNING">REXROTH_ERR_FD_DRIVE_WARNING</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_PRESSURE_TOO_HIGH">
+     <td>123</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_PRESSURE_TOO_HIGH">REXROTH_ERR_FD_PRESSURE_TOO_HIGH</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_PRESSURE_TOO_LOW">
+     <td>124</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_PRESSURE_TOO_LOW">REXROTH_ERR_FD_PRESSURE_TOO_LOW</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION">
+     <td>125</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION">REXROTH_ERR_FD_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_SETTLED_SWITCH_NOT_DETECTED_BY_SAFETY_HOMING_PROCEDURE">
+     <td>126</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_SETTLED_SWITCH_NOT_DETECTED_BY_SAFETY_HOMING_PROCEDURE">REXROTH_ERR_FD_SETTLED_SWITCH_NOT_DETECTED_BY_SAFETY_HOMING_PROCEDURE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FD_POWER_OFF_LINE_FAILURE">
+     <td>127</td>
+     <td>
+      <a href="#REXROTH_ERR_FD_POWER_OFF_LINE_FAILURE">REXROTH_ERR_FD_POWER_OFF_LINE_FAILURE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MOTION_ENABLE_CIRCUIT_OPENED">
+     <td>100</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MOTION_ENABLE_CIRCUIT_OPENED">REXROTH_ERR_ES_MOTION_ENABLE_CIRCUIT_OPENED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_EMERGENCY_STOP_CIRCUIT_OPENED">
+     <td>160</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_EMERGENCY_STOP_CIRCUIT_OPENED">REXROTH_ERR_ES_EMERGENCY_STOP_CIRCUIT_OPENED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_RAMP_NOT_UP">
+     <td>164</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_RAMP_NOT_UP">REXROTH_ERR_ES_RAMP_NOT_UP</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MOVE_RAMP_UP_TIMEOUT">
+     <td>172</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MOVE_RAMP_UP_TIMEOUT">REXROTH_ERR_ES_MOVE_RAMP_UP_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MOVE_RAMP_DOWN_TIMEOUT">
+     <td>173</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MOVE_RAMP_DOWN_TIMEOUT">REXROTH_ERR_ES_MOVE_RAMP_DOWN_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MOVE_PLATFORM_UP_TIMEOUT">
+     <td>174</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MOVE_PLATFORM_UP_TIMEOUT">REXROTH_ERR_ES_MOVE_PLATFORM_UP_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MOVE_PLATFORM_DOWN_TIMEOUT">
+     <td>175</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MOVE_PLATFORM_DOWN_TIMEOUT">REXROTH_ERR_ES_MOVE_PLATFORM_DOWN_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_CIRCUIT_BREAKER">
+     <td>184</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_CIRCUIT_BREAKER">REXROTH_ERR_ES_CIRCUIT_BREAKER</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_YAW_TABLE_POSITION_LIMIT_ACTIVE">
+     <td>185</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_YAW_TABLE_POSITION_LIMIT_ACTIVE">REXROTH_ERR_ES_YAW_TABLE_POSITION_LIMIT_ACTIVE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_XY_CUSHION">
+     <td>186</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_XY_CUSHION">REXROTH_ERR_ES_XY_CUSHION</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_EXCESSIVE_POSITION_DIFFERENCE">
+     <td>193</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_EXCESSIVE_POSITION_DIFFERENCE">REXROTH_ERR_ES_EXCESSIVE_POSITION_DIFFERENCE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BRAKE_POWER_FAIL">
+     <td>194</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BRAKE_POWER_FAIL">REXROTH_ERR_ES_BRAKE_POWER_FAIL</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_MANUAL_BRAKE_RELEASE">
+     <td>195</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_MANUAL_BRAKE_RELEASE">REXROTH_ERR_ES_MANUAL_BRAKE_RELEASE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_RAMP_SWITCH_FAILURE">
+     <td>206</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_RAMP_SWITCH_FAILURE">REXROTH_ERR_ES_RAMP_SWITCH_FAILURE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BUFFER_CHECK_TIMEOUT">
+     <td>207</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BUFFER_CHECK_TIMEOUT">REXROTH_ERR_ES_BUFFER_CHECK_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BUFFER_CHECK_ERROR">
+     <td>208</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BUFFER_CHECK_ERROR">REXROTH_ERR_ES_BUFFER_CHECK_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION">
+     <td>209</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION">REXROTH_ERR_ES_ACTUATOR_POSITION_DOES_NOT_MATCH_SWITCH_POSITION</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BB_CONTACT_DRIVE_OPEN">
+     <td>222</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BB_CONTACT_DRIVE_OPEN">REXROTH_ERR_ES_BB_CONTACT_DRIVE_OPEN</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_DRIVE_ERROR">
+     <td>223</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_DRIVE_ERROR">REXROTH_ERR_ES_DRIVE_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_POWER_ON_TIMEOUT">
+     <td>225</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_POWER_ON_TIMEOUT">REXROTH_ERR_ES_POWER_ON_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_POWER_OFF_TIMEOUT">
+     <td>226</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_POWER_OFF_TIMEOUT">REXROTH_ERR_ES_POWER_OFF_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BB_CONTACT_BLEEDER_OPEN">
+     <td>230</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BB_CONTACT_BLEEDER_OPEN">REXROTH_ERR_ES_BB_CONTACT_BLEEDER_OPEN</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_BB_CONTACT_POWER_SUPPLY_OPEN">
+     <td>231</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_BB_CONTACT_POWER_SUPPLY_OPEN">REXROTH_ERR_ES_BB_CONTACT_POWER_SUPPLY_OPEN</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_DRIVE_ON_TIMEOUT">
+     <td>235</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_DRIVE_ON_TIMEOUT">REXROTH_ERR_ES_DRIVE_ON_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_DRIVE_OFF_TIMEOUT">
+     <td>236</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_DRIVE_OFF_TIMEOUT">REXROTH_ERR_ES_DRIVE_OFF_TIMEOUT</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_SMOKE_OR_FIRE_DETECTED">
+     <td>237</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_SMOKE_OR_FIRE_DETECTED">REXROTH_ERR_ES_SMOKE_OR_FIRE_DETECTED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_ACTUAL_TORQUE_LIMIT_INVALID">
+     <td>238</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_ACTUAL_TORQUE_LIMIT_INVALID">REXROTH_ERR_ES_ACTUAL_TORQUE_LIMIT_INVALID</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_ABSOLUTE_ENCODER_NOT_IN_REFERENCE">
+     <td>239</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_ABSOLUTE_ENCODER_NOT_IN_REFERENCE">REXROTH_ERR_ES_ABSOLUTE_ENCODER_NOT_IN_REFERENCE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_ES_SOFTWARE_CRASHED">
+     <td>250</td>
+     <td>
+      <a href="#REXROTH_ERR_ES_SOFTWARE_CRASHED">REXROTH_ERR_ES_SOFTWARE_CRASHED</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FB_FD_DRIVE_ERROR">
+     <td>224</td>
+     <td>
+      <a href="#REXROTH_ERR_FB_FD_DRIVE_ERROR">REXROTH_ERR_FB_FD_DRIVE_ERROR</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FB_SERCOS_BUS">
+     <td>240</td>
+     <td>
+      <a href="#REXROTH_ERR_FB_SERCOS_BUS">REXROTH_ERR_FB_SERCOS_BUS</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_FB_SERCOS_SLAVE">
+     <td>241</td>
+     <td>
+      <a href="#REXROTH_ERR_FB_SERCOS_SLAVE">REXROTH_ERR_FB_SERCOS_SLAVE</a>
+     </td>
+     <td>
+     </td>
+    </tr>
+    <tr id="REXROTH_ERR_EPO_LINE_FAILURE">
+     <td>255</td>
+     <td>
+      <a href="#REXROTH_ERR_EPO_LINE_FAILURE">REXROTH_ERR_EPO_LINE_FAILURE</a>
+     </td>
+     <td>
+     </td>
     </tr>
    </tbody>
   </table>
@@ -508,7 +1060,7 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>
      </td>
      <td>
-      <a href="#MOTION_PLATFORM_STATUS">MOTION_PLATFORM_STATUS</a>
+      <a href="#MOTION_PLATFORM_HEALTH">MOTION_PLATFORM_HEALTH</a>
      </td>
      <td>Generic system health (error and warning) status.</td>
     </tr>
