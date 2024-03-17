@@ -49,6 +49,12 @@
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">MARSH Manager</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#saving-data">Saving data</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#licenses">Licenses</a>
     </li>
@@ -104,7 +110,7 @@
             <div class="section" itemprop="articleBody">
               
                 <h1 id="marsh-manager">MARSH Manager</h1>
-<p>The <code>marsh-mgr</code> program is a graphical application that serves as the central node in the simulator architecture.</p>
+<p>The <code>marsh-mgr</code> program is a graphical application for Linux and Windows that serves as the central node in the simulator architecture.</p>
 <p>It is meant as a single tool to provide:</p>
 <ul>
 <li>Communicating data between simulator parts (nodes)</li>
@@ -115,6 +121,47 @@
 <h2 id="usage">Usage</h2>
 <p>Start the application executable, either <code>marsh-mgr</code> or <code>marsh-mgr.exe</code>.
 If other nodes are running on different computers, configure "manager address" to IP address of the computer running the manager.</p>
+<h3 id="saving-data">Saving data</h3>
+<p>The user can choose a folder to save the data, the files are named depending on the logging start time to avoid overwriting previous saves.
+A "file comment" can be added which will be a part of the generated filename, but will also be saved as a <a href="../mavlink/common/#STATUSTEXT">STATUSTEXT</a> message at the start of the file.
+The maximum length for file comment is 50 characters.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the file comment to help with your data processing afterwards: write test subject initials, short description of test case etc.</p>
+</div>
+<p>The data files saved are "MAVLink telemetry log", recognizable by <code>.tlog</code> extension.
+This binary file format is a de facto standard between multiple UAV flight stacks, the file just contains MAVLink messages, each preceded by a timestamp in microseconds.</p>
+<p>There are multiple external tools available for viewing the logs, notable examples:</p>
+<ul>
+<li><a href="https://it.mathworks.com/help/uav/mavlink-support.html?s_tid=CRUX_lftnav">MAVLink Support</a> in MATLAB's UAV Toolbox includes <a href="https://it.mathworks.com/help/uav/ref/mavlinktlog.html"><code>mavlinktlog</code> function</a></li>
+<li><a href="https://github.com/ArduPilot/pymavlink">pymavlink library</a> which is used for generating libraries and communication for Python also has <a href="https://github.com/ArduPilot/pymavlink/blob/master/tools/mavlogdump.py"><code>mavlogdump.py</code> script</a></li>
+<li>Some online tools like <a href="https://plot.ardupilot.org/">UAV Log Viewer</a> can read <code>.tlog</code> files.</li>
+<li>ArduPilot's <a href="https://ardupilot.org/dev/docs/using-mavexplorer-for-log-analysis.html">MAVExplorer</a> can be used for plots, filtering data and showing it on a map</li>
+</ul>
+<h2 id="roadmap">Roadmap</h2>
+<p>The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:</p>
+<ul>
+<li>Display time saving to log</li>
+<li>Add a way to send and log messages originating from manager</li>
+<li>Showing messages sent to each client in Network View</li>
+<li>Support for <a href="https://mavlink.io/en/services/parameter.html">Parameter Protocol</a>:<ul>
+<li>Requesting parameters from nodes on connecting and on start of saving data</li>
+<li>Showing parameters in Network View with a possibility to edit the values</li>
+<li><em>Maybe later:</em> parameter descriptions with <a href="https://mavlink.io/en/services/component_information.html">Component Metadata Protocol</a></li>
+</ul>
+</li>
+<li>Using full message definitions:<ul>
+<li>Bundling XML files used to generate the C library with the application</li>
+<li>Displaying units of message fields<ul>
+<li>Displaying angular values sent as radians also as degrees</li>
+</ul>
+</li>
+<li>Showing text identifiers for specific enum values</li>
+<li><em>Maybe later:</em> using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants</li>
+</ul>
+</li>
+<li>Replaying log files</li>
+</ul>
 <h2 id="licenses">Licenses</h2>
 <p>The code for MARSH Manager is licensed under <a href="https://github.com/marsh-sim/marsh-manager/blob/main/LICENSE.txt">GNU General Public License v3.0</a></p>
 <p>General application structure provided by <a href="https://www.qt.io/product">Qt Framework</a> under terms of the <a href="https://doc.qt.io/qt-6/lgpl.html">GNU Lesser General Public License (LGPL)</a></p>
