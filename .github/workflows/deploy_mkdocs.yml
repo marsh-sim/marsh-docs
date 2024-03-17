@@ -1,7 +1,9 @@
 # Source: https://github.com/marketplace/actions/mkdocs-action#example-usage
 name: MkDocs deploy page
 
-on: push
+on: 
+  - push
+  - workflow_dispatch
 
 jobs:
   build:
