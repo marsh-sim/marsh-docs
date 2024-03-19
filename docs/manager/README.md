@@ -40,8 +40,6 @@ There are multiple external tools available for viewing the logs, notable exampl
 
 The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:
 
-- Add a way to send and log messages originating from manager
-- Showing messages sent to each client in Network View
 - Support for [Parameter Protocol](https://mavlink.io/en/services/parameter.html):
     - Requesting parameters from nodes on connecting and on start of saving data
     - Showing parameters in Network View with a possibility to edit the values
