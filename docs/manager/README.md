@@ -44,6 +44,7 @@ The following are already planned future features of MARSH Manager, approximatel
     - Requesting parameters from nodes on connecting and on start of saving data
     - Showing parameters in Network View with a possibility to edit the values
     - *Maybe later:* parameter descriptions with [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)
+    - *Maybe later:* setting parameters of multiple components based on test matrix
 - Using full message definitions:
     - Bundling XML files used to generate the C library with the application
     - Displaying units of message fields
