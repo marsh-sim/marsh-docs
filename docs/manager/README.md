@@ -46,10 +46,11 @@ The following are already planned future features of MARSH Manager, approximatel
     - *Maybe later:* parameter descriptions with [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)
     - *Maybe later:* setting parameters of multiple components based on test matrix
 - Using full message definitions:
-    - Bundling XML files used to generate the C library with the application
     - Displaying units of message fields
         - Displaying angular values sent as radians also as degrees
-    - Showing text identifiers for specific enum values
+    - Showing text identifiers for enum values
+        - Find length of common prefix from enum names
+        - Show bitfields as a collection of flags
     - *Maybe later:* using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants
 - Replaying log files
 
