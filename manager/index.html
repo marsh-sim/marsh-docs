@@ -150,12 +150,15 @@ This binary file format is a de facto standard between multiple UAV flight stack
 </ul>
 </li>
 <li>Using full message definitions:<ul>
-<li>Bundling XML files used to generate the C library with the application</li>
 <li>Displaying units of message fields<ul>
 <li>Displaying angular values sent as radians also as degrees</li>
 </ul>
 </li>
-<li>Showing text identifiers for specific enum values</li>
+<li>Showing text identifiers for enum values<ul>
+<li>Find length of common prefix from enum names</li>
+<li>Show bitfields as a collection of flags</li>
+</ul>
+</li>
 <li><em>Maybe later:</em> using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants</li>
 </ul>
 </li>
