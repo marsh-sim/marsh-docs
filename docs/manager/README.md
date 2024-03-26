@@ -10,9 +10,60 @@ It is meant as a single tool to provide:
 
 ![diagram showing MARSH Manager as central element of the simulator](./simulator_variants_manager.svg)
 
+## Installation
+
+If your operating system or processor architecture do not have a release provided, you can build the application from source code using the [instructions for contributors](./contributing.md)
+
+### Linux
+
+Download the `.AppImage` file from the [Releases page](https://github.com/marsh-sim/marsh-manager/releases).
+Make it executable, [using the GUI](https://docs.appimage.org/introduction/quickstart.html#using-the-gui), or with the following command:
+
+```bash
+chmod +x MARSH_Manager-x86_64.AppImage
+```
+
+If you haven't used AppImage files before you might need to install the FUSE library.
+The command below was tested to work on Ubuntu 22.04, if you still have problems, see [AppImage documentation about FUSE](https://docs.appimage.org/user-guide/troubleshooting/fuse.html).
+
+```bash
+sudo apt install libfuse2
+```
+
+Run the program using GUI, or from terminal:
+
+```bash
+./MARSH_Manager-x86_64.AppImage
+```
+
+#### Optional: register as `marsh-mgr` command
+
+It is [recommended](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html#variables) to put your own executables in `~/.local/bin`
+
+```bash
+mkdir -p ~/.local/bin
+cp ./MARSH_Manager-x86_64.AppImage ~/.local/bin/marsh-mgr
+```
+
+If the command `marsh-mgr` is still not found at this point, this directory isn't in PATH variable, where system looks for executables (you can display it with `echo $PATH`).
+An example fix for users of bash (default shell in Ubuntu):
+
+```bash
+echo 'export PATH=~/.local/bin:$PATH' >> ~/.bashrc
+source ~/.bashrc
+```
+
+### Windows
+
+Download and unpack the ZIP file for Windows.
+Run `marsh-mgr.exe`.
+
+!!! note
+    This is a temporary solution, expect some changes.
+
 ## Usage
 
-Start the application executable, either `marsh-mgr` or `marsh-mgr.exe`.
+Start the application executable, dependent on your operating system may be the `marsh-mgr` command.
 If other nodes are running on different computers, configure "manager address" to IP address of the computer running the manager.
 
 ![screenshot of MARSH Manager window](main_window.png)
@@ -45,6 +96,9 @@ The following are already planned future features of MARSH Manager, approximatel
     - Showing parameters in Network View with a possibility to edit the values
     - *Maybe later:* parameter descriptions with [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)
     - *Maybe later:* setting parameters of multiple components based on test matrix
+- Distribution:
+    - Automated builds and releases on GitHub
+    - Windows installer with `windeployqt`
 - Using full message definitions:
     - Displaying units of message fields
         - Displaying angular values sent as radians also as degrees
