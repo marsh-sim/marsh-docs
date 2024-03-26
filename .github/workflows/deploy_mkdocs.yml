@@ -20,9 +20,7 @@ jobs:
       - name: Update MAVLink tables
         run: python update_mavlink_tables.py --ignore-errors
       - name: Build HTML
-        uses: Tiryoh/actions-mkdocs@v0
-        with:
-          mkdocs_version: "1.5.3"
+        run: python -m mkdocs build
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         if: github.ref == 'refs/heads/main'
