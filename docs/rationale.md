@@ -50,7 +50,9 @@ The requirements expressed as [user stories](https://en.wikipedia.org/wiki/User_
 
 The most common feedback among reviewers was that using an estabilished solution is really important to not depend on the author to on-board every user. Also online search and chatbots will work much better.
 
-![XKCD webcomic](https://imgs.xkcd.com/comics/standards.png)
+![xkcd webcomic](https://imgs.xkcd.com/comics/standards.png)
+
+*Fig: [xkcd "Standards" webcomic](https://xkcd.com/927/), under [CC-BY-NC 2.5](https://creativecommons.org/licenses/by-nc/2.5/) license*
 
 A minimal comparison was made between the suggested libraries, see the [comm-library-comparison](https://github.com/marsh-sim/comm-library-comparison) repository:
 
@@ -60,3 +62,14 @@ A minimal comparison was made between the suggested libraries, see the [comm-lib
 - MAVLink
 
 The minimal prototype was implementing a trivial flight model using MATLAB Simulink and/or Python, and MAVLink proved to have by far the best support in the former.
+
+## Similar solutions in academia
+
+After the initial round of comparison and developent, some examples were found in the academic environment:
+
+- [SIMONA](http://www.simona.tudelft.nl/) at TU Delft, comparison based only on public documentation:
+    - Provides strong real-time guarantees
+    - Has already been used for multiple simulators
+    - More opinionated about the modules structure, should be written in C++
+        - Partial support for Python; Simulink models through C++ code generation
+    - Logs data to [HDF5](https://www.hdfgroup.org/solutions/hdf5/) which seems to be more widely used and more fit for the purpose format

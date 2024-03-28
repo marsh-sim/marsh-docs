@@ -12,7 +12,7 @@ It is meant as a single tool to provide:
 
 ## Installation
 
-If your operating system or processor architecture do not have a release provided, you can build the application from source code using the [instructions for contributors](./contributing.md)
+If your operating system or processor architecture do not have a release provided, you can build the application from source code using the [developer documentation](./development.md)
 
 ### Linux
 
@@ -55,7 +55,7 @@ source ~/.bashrc
 
 ### Windows
 
-Download and unpack the ZIP file for Windows.
+Download and unpack the ZIP file for Windows from the [Releases page](https://github.com/marsh-sim/marsh-manager/releases).
 Run `marsh-mgr.exe`.
 
 !!! note
@@ -107,6 +107,14 @@ The following are already planned future features of MARSH Manager, approximatel
         - Show bitfields as a collection of flags
     - *Maybe later:* using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants
 - Replaying log files
+
+## Contributing
+
+Contributions to [documentation](../documentation.md) and code are welcome.
+The repository is on GitHub as [marsh-sim/marsh-manager](https://github.com/marsh-sim/marsh-manager).
+If you notice a problem, or want to request a new feature, you can [create New issue](https://github.com/marsh-sim/marsh-manager/issues)
+Code contributions are expected as [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to that repository.
+See the [developer documenttion](./development.md) to get started.
 
 ## Licenses
 

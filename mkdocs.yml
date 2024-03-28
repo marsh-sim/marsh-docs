@@ -11,9 +11,10 @@ nav:
   - Home: README.md
   - Manager:
     - MARSH Manager: manager/README.md
-    - Contributing: manager/contributing.md
-  - Developer Guide:
-    - Node Development: node_development.md
+    - Development: manager/development.md
+  - Nodes:
+    - Simulator nodes: nodes/README.md
+    - Development: nodes/development.md
   - MAVLink definitions:
     - Minimal Set: mavlink/minimal.md
     - Subset of Common Set: mavlink/common.md
