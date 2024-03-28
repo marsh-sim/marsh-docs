@@ -58,6 +58,10 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Development</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#example-repository">Example repository</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#message-choice">Message choice</a>
+    </li>
     </ul>
                   </li>
               </ul>
@@ -104,6 +108,11 @@
               
                 <h1 id="node-development">Node development</h1>
 <p>Every component of the simulator should be a separate node. The nodes have to publish a <a href="https://mavlink.io/en/messages/common.html#HEARTBEAT">HEARTBEAT</a> message according to <a href="https://mavlink.io/en/services/heartbeat.html">Heartbeat/Connection Protocol</a>.</p>
+<h2 id="example-repository">Example repository</h2>
+<p>There are multiple examples of ready-made nodes and utility functions in the <a href="https://github.com/marsh-sim/sim-nodes">marsh-sim/sim-nodes repository</a>.</p>
+<p>The names of scripts should hint at the type of component from <a href="../../mavlink/marsh/#MARSH_COMPONENT">MARSH_COMPONENT</a>.
+These are at the end of the name, and the beginning something unique, to make running a given script easier from terminal with Tab-completion.</p>
+<h2 id="message-choice">Message choice</h2>
 <p>For communicating any node-specific feature the workflow is as follows:</p>
 <ol>
 <li>Check if there is already a relevant convention for a feature in <a href="https://mavlink.io/en/services/">Microservices</a> section of Dev Guide<ul>
