@@ -1,4 +1,4 @@
-# Welcome to MARSH documentation!
+# Welcome to MARSH documentation
 
 **MARSH** stands for Modular Architecture for Reconfigurable Simulation of Helicopters.
 

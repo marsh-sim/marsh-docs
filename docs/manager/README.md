@@ -107,6 +107,7 @@ The following are already planned future features of MARSH Manager, approximatel
         - Show bitfields as a collection of flags
     - *Maybe later:* using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants
 - Replaying log files
+- Allow unregistered clients to do *some* operations that would make sense for simple utility scripts, for example parameters
 
 ## Contributing
 
