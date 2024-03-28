@@ -48,12 +48,14 @@
               <ul>
                   <li class="toctree-l1"><a class="reference internal" href="../manager/">MARSH Manager</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../manager/contributing/">Contributing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../manager/development/">Development</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <p class="caption"><span class="caption-text">Nodes</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../node_development/">Node Development</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Simulator nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/development/">Development</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">MAVLink definitions</span></p>
@@ -82,6 +84,8 @@
         </ul>
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#standard-selection">Standard selection</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#similar-solutions-in-academia">Similar solutions in academia</a>
     </li>
     </ul>
                   </li>
@@ -160,7 +164,8 @@ simulation for the following projects:</p>
 </ul>
 <h2 id="standard-selection">Standard selection</h2>
 <p>The most common feedback among reviewers was that using an estabilished solution is really important to not depend on the author to on-board every user. Also online search and chatbots will work much better.</p>
-<p><img alt="XKCD webcomic" src="https://imgs.xkcd.com/comics/standards.png" /></p>
+<p><img alt="xkcd webcomic" src="https://imgs.xkcd.com/comics/standards.png" /></p>
+<p><em>Fig: <a href="https://xkcd.com/927/">xkcd "Standards" webcomic</a>, under <a href="https://creativecommons.org/licenses/by-nc/2.5/">CC-BY-NC 2.5</a> license</em></p>
 <p>A minimal comparison was made between the suggested libraries, see the <a href="https://github.com/marsh-sim/comm-library-comparison">comm-library-comparison</a> repository:</p>
 <ul>
 <li>MQTT</li>
@@ -169,6 +174,20 @@ simulation for the following projects:</p>
 <li>MAVLink</li>
 </ul>
 <p>The minimal prototype was implementing a trivial flight model using MATLAB Simulink and/or Python, and MAVLink proved to have by far the best support in the former.</p>
+<h2 id="similar-solutions-in-academia">Similar solutions in academia</h2>
+<p>After the initial round of comparison and developent, some examples were found in the academic environment:</p>
+<ul>
+<li><a href="http://www.simona.tudelft.nl/">SIMONA</a> at TU Delft, comparison based only on public documentation:<ul>
+<li>Provides strong real-time guarantees</li>
+<li>Has already been used for multiple simulators</li>
+<li>More opinionated about the modules structure, should be written in C++<ul>
+<li>Partial support for Python; Simulink models through C++ code generation</li>
+</ul>
+</li>
+<li>Logs data to <a href="https://www.hdfgroup.org/solutions/hdf5/">HDF5</a> which seems to be more widely used and more fit for the purpose format</li>
+</ul>
+</li>
+</ul>
               
             </div>
           </div><footer>

@@ -68,16 +68,20 @@
     </li>
     <li class="toctree-l2"><a class="reference internal" href="#roadmap">Roadmap</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#contributing">Contributing</a>
+    </li>
     <li class="toctree-l2"><a class="reference internal" href="#licenses">Licenses</a>
     </li>
     </ul>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="contributing/">Contributing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="development/">Development</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <p class="caption"><span class="caption-text">Nodes</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../node_development/">Node Development</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/">Simulator nodes</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../nodes/development/">Development</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">MAVLink definitions</span></p>
@@ -131,7 +135,7 @@
 </ul>
 <p><img alt="diagram showing MARSH Manager as central element of the simulator" src="simulator_variants_manager.svg" /></p>
 <h2 id="installation">Installation</h2>
-<p>If your operating system or processor architecture do not have a release provided, you can build the application from source code using the <a href="contributing/">instructions for contributors</a></p>
+<p>If your operating system or processor architecture do not have a release provided, you can build the application from source code using the <a href="development/">developer documentation</a></p>
 <h3 id="linux">Linux</h3>
 <p>Download the <code>.AppImage</code> file from the <a href="https://github.com/marsh-sim/marsh-manager/releases">Releases page</a>.
 Make it executable, <a href="https://docs.appimage.org/introduction/quickstart.html#using-the-gui">using the GUI</a>, or with the following command:</p>
@@ -155,7 +159,7 @@ An example fix for users of bash (default shell in Ubuntu):</p>
 source ~/.bashrc
 </code></pre>
 <h3 id="windows">Windows</h3>
-<p>Download and unpack the ZIP file for Windows.
+<p>Download and unpack the ZIP file for Windows from the <a href="https://github.com/marsh-sim/marsh-manager/releases">Releases page</a>.
 Run <code>marsh-mgr.exe</code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -212,6 +216,12 @@ This binary file format is a de facto standard between multiple UAV flight stack
 </li>
 <li>Replaying log files</li>
 </ul>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions to <a href="../documentation/">documentation</a> and code are welcome.
+The repository is on GitHub as <a href="https://github.com/marsh-sim/marsh-manager">marsh-sim/marsh-manager</a>.
+If you notice a problem, or want to request a new feature, you can <a href="https://github.com/marsh-sim/marsh-manager/issues">create New issue</a>
+Code contributions are expected as <a href="https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests">Pull Requests</a> to that repository.
+See the <a href="development/">developer documenttion</a> to get started.</p>
 <h2 id="licenses">Licenses</h2>
 <p>The code for MARSH Manager is licensed under <a href="https://github.com/marsh-sim/marsh-manager/blob/main/LICENSE.txt">GNU General Public License v3.0</a></p>
 <p>General application structure provided by <a href="https://www.qt.io/product">Qt Framework</a> under terms of the <a href="https://doc.qt.io/qt-6/lgpl.html">GNU Lesser General Public License (LGPL)</a></p>
@@ -221,7 +231,7 @@ This binary file format is a de facto standard between multiple UAV flight stack
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="contributing/" class="btn btn-neutral float-right" title="Contributing">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="development/" class="btn btn-neutral float-right" title="Development">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -252,7 +262,7 @@ This binary file format is a de facto standard between multiple UAV flight stack
       <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="contributing/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="development/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>

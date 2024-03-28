@@ -3,23 +3,23 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Marek S. Lukasiewicz" /><link rel="canonical" href="https://marsh-sim.github.io/node_development/" />
-      <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>Node Development - MARSH Documentation</title>
-    <link rel="stylesheet" href="../css/theme.css" />
-    <link rel="stylesheet" href="../css/theme_extra.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="author" content="Marek S. Lukasiewicz" /><link rel="canonical" href="https://marsh-sim.github.io/nodes/development/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Development - MARSH Documentation</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
-        <link href="../mavlink_table.css" rel="stylesheet" />
+        <link href="../../mavlink_table.css" rel="stylesheet" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "Node Development";
-        var mkdocs_page_input_path = "node_development.md";
-        var mkdocs_page_url = "/node_development/";
+        var mkdocs_page_name = "Development";
+        var mkdocs_page_input_path = "nodes/development.md";
+        var mkdocs_page_url = "/nodes/development/";
       </script>
     
     <!--[if lt IE 9]>
-      <script src="../js/html5shiv.min.js"></script>
+      <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
       <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
       <script>hljs.highlightAll();</script> 
@@ -31,9 +31,9 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> MARSH Documentation
+          <a href="../.." class="icon icon-home"> MARSH Documentation
         </a><div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
       <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
@@ -41,37 +41,39 @@
 
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">Manager</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../manager/">MARSH Manager</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../manager/">MARSH Manager</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../manager/contributing/">Contributing</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../manager/development/">Development</a>
                   </li>
               </ul>
-              <p class="caption"><span class="caption-text">Developer Guide</span></p>
+              <p class="caption"><span class="caption-text">Nodes</span></p>
               <ul class="current">
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Node Development</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../">Simulator nodes</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">Development</a>
     <ul class="current">
     </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">MAVLink definitions</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../mavlink/minimal/">Minimal Set</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mavlink/minimal/">Minimal Set</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../mavlink/common/">Subset of Common Set</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mavlink/common/">Subset of Common Set</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../mavlink/marsh/">MARSH Dialect</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../mavlink/marsh/">MARSH Dialect</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">Project</span></p>
               <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../rationale/">Rationale</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../rationale/">Rationale</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../documentation/">Documentation</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../documentation/">Documentation</a>
                   </li>
               </ul>
       </div>
@@ -81,17 +83,17 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">MARSH Documentation</a>
+          <a href="../..">MARSH Documentation</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">Developer Guide</li>
-      <li class="breadcrumb-item active">Node Development</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Nodes</li>
+      <li class="breadcrumb-item active">Development</li>
     <li class="wy-breadcrumbs-aside">
-          <a href="https://github.com/marsh-sim/marsh-sim.github.io/edit/main/docs/node_development.md" class="icon icon-github"> Edit on GitHub</a>
+          <a href="https://github.com/marsh-sim/marsh-sim.github.io/edit/main/docs/nodes/development.md" class="icon icon-github"> Edit on GitHub</a>
     </li>
   </ul>
   <hr/>
@@ -101,7 +103,7 @@
               
                 <h1 id="node-development">Node development</h1>
 <p>Every component of the simulator should be a separate node. The nodes have to publish a <a href="https://mavlink.io/en/messages/common.html#HEARTBEAT">HEARTBEAT</a> message according to <a href="https://mavlink.io/en/services/heartbeat.html">Heartbeat/Connection Protocol</a>.</p>
-<p>For any node-specific feature the workflow is as follows:</p>
+<p>For communicating any node-specific feature the workflow is as follows:</p>
 <ol>
 <li>Check if there is already a relevant convention for a feature in <a href="https://mavlink.io/en/services/">Microservices</a> section of Dev Guide<ul>
 <li>If nothing was found, search the <a href="https://mavlink.io/en/messages/common.html">Common Message Set</a></li>
@@ -114,8 +116,8 @@
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../manager/contributing/" class="btn btn-neutral float-left" title="Contributing"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../mavlink/minimal/" class="btn btn-neutral float-right" title="Minimal Set">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../" class="btn btn-neutral float-left" title="Simulator nodes"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../mavlink/minimal/" class="btn btn-neutral float-right" title="Minimal Set">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -143,18 +145,18 @@
         </span>
     
     
-      <span><a href="../manager/contributing/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../mavlink/minimal/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../mavlink/minimal/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script src="../js/jquery-3.6.0.min.js"></script>
-    <script>var base_url = "..";</script>
-    <script src="../js/theme_extra.js"></script>
-    <script src="../js/theme.js"></script>
-      <script src="../search/main.js"></script>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
     <script>
         jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
