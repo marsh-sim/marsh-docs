@@ -26,6 +26,7 @@ nav:
 theme: readthedocs
 
 extra_css:
+  - external_links.css
   - mavlink_table.css
 
 markdown_extensions:
