@@ -84,7 +84,7 @@ for dialect in ['common', 'marsh', 'minimal']:
                 'line with comment about auto-generated content required', out_p)
 
     date = datetime.now().replace(microsecond=0)
-    out_lines.append('\n---\n')
+    out_lines.append('\n## Definition list\n')
     out_lines.append(
         '\nGenerated on {} from commit [{}](https://github.com/marsh-sim/mavlink/tree/{})\n\n'.format(
             date.isoformat(), mavlink_hash[:7], mavlink_hash
@@ -105,7 +105,6 @@ for dialect in ['common', 'marsh', 'minimal']:
     # links which point to other dialects will be changed to mavlink.io
     dialect_link_pattern = re.compile(r'<a href="([A-Za-z\d_]+).md"')
 
-    out_lines.append('<h2 id="definition_list">Definition list</h2>\n')
     # where to insert for table of contents
     toc_line = len(out_lines)
 

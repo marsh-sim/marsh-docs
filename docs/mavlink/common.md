@@ -4,14 +4,20 @@ These messages are reproduced from the original documentation at [mavlink.io –
 
 Before designing a new message, first check the original documentation linked above. If you find a useful message in the common set, consider [editing](https://github.com/marsh-sim/marsh-sim.github.io/edit/main/docs/mavlink/common_subset.txt) the [list of identifiers](./common_subset.txt) used for generating this page.
 
+## Conventions
+
+Message [MANUAL_SETPOINT](#MANUAL_SETPOINT) is used for desired control positions (as displayed in [Lidia](https://pypi.org/project/lidia/)), so the values for all fields should be treated as normalized controls positions between -1 and 1 instead of rad/s.
+It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.
+
+Message [RAW_RPM](#RAW_RPM) for helicopters should send rotor with index 0, and then engines in order.
+
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
----
+## Definition list
 
-Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
+Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209)
 
-<h2 id="definition_list">Definition list</h2>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>
@@ -25,8 +31,10 @@ Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-
   <li><a href="#PARAM_VALUE">PARAM_VALUE</a></li>
   <li><a href="#PARAM_SET">PARAM_SET</a></li>
   <li><a href="#MANUAL_CONTROL">MANUAL_CONTROL</a></li>
+  <li><a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a></li>
   <li><a href="#SIM_STATE">SIM_STATE</a></li>
   <li><a href="#STATUSTEXT">STATUSTEXT</a></li>
+  <li><a href="#RAW_RPM">RAW_RPM</a></li>
  </ul></li>
 </ul>
 <html>
@@ -523,6 +531,72 @@ Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-
     </tr>
    </tbody>
   </table>
+  <h3 id="MANUAL_SETPOINT">MANUAL_SETPOINT (<a href="#MANUAL_SETPOINT">
+    #81
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Setpoint in roll, pitch, yaw and thrust from the operator</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>roll</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired roll rate</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired pitch rate</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired yaw rate</td>
+    </tr>
+    <tr>
+     <td>thrust</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Collective thrust, normalized to 0 .. 1</td>
+    </tr>
+    <tr>
+     <td>mode_switch</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Flight mode switch position, 0.. 255</td>
+    </tr>
+    <tr>
+     <td>manual_override_switch</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Override mode switch position, 0.. 255</td>
+    </tr>
+   </tbody>
+  </table>
   <h3 id="SIM_STATE">SIM_STATE (<a href="#SIM_STATE">
     #108
    </a>
@@ -573,22 +647,19 @@ Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-
     <tr>
      <td>roll</td>
      <td>float</td>
-     <td>
-     </td>
+     <td>rad</td>
      <td>Attitude roll expressed as Euler angles, not recommended except for human-readable outputs</td>
     </tr>
     <tr>
      <td>pitch</td>
      <td>float</td>
-     <td>
-     </td>
+     <td>rad</td>
      <td>Attitude pitch expressed as Euler angles, not recommended except for human-readable outputs</td>
     </tr>
     <tr>
      <td>yaw</td>
      <td>float</td>
-     <td>
-     </td>
+     <td>rad</td>
      <td>Attitude yaw expressed as Euler angles, not recommended except for human-readable outputs</td>
     </tr>
     <tr>
@@ -750,6 +821,43 @@ Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-
      <td>
      </td>
      <td>This chunk's sequence number; indexing is from zero.  Any null character in the text field is taken to mean this was the last chunk.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="RAW_RPM">RAW_RPM (<a href="#RAW_RPM">
+    #339
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>
+   <strong>
+    (MAVLink 2)
+   </strong>RPM sensor data message.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>index</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Index of this RPM sensor (0-indexed)</td>
+    </tr>
+    <tr>
+     <td>frequency</td>
+     <td>float</td>
+     <td>rpm</td>
+     <td>Indicated rate</td>
     </tr>
    </tbody>
   </table>

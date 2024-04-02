@@ -9,11 +9,10 @@ Generally the nodes in the simulator system are expected to send [MAV_AUTOPILOT_
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
----
+## Definition list
 
-Generated on 2024-03-15T17:53:42 from commit [a272aa9](https://github.com/marsh-sim/mavlink/tree/a272aa9a26f9607a8c0115fde948ffe2d2505a38)
+Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209)
 
-<h2 id="definition_list">Definition list</h2>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_AUTOPILOT">MAV_AUTOPILOT</a></li>
