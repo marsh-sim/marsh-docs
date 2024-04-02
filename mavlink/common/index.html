@@ -65,6 +65,10 @@
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Subset of Common Set</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#conventions">Conventions</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#definition-list">Definition list</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../marsh/">MARSH Dialect</a>
@@ -105,12 +109,15 @@
                 <h1 id="subset-of-common-set">Subset of Common Set</h1>
 <p>These messages are reproduced from the original documentation at <a href="https://mavlink.io/en/messages/common.html">mavlink.io – MAVLink Common Message Set</a>. This is <strong>only a subset of the full list</strong>, including only messages used in the MARSH project, to make the protocol less overwhelming.</p>
 <p>Before designing a new message, first check the original documentation linked above. If you find a useful message in the common set, consider <a href="https://github.com/marsh-sim/marsh-sim.github.io/edit/main/docs/mavlink/common_subset.txt">editing</a> the <a href="../common_subset.txt">list of identifiers</a> used for generating this page.</p>
+<h2 id="conventions">Conventions</h2>
+<p>Message <a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a> is used for desired control positions (as displayed in <a href="https://pypi.org/project/lidia/">Lidia</a>), so the values for all fields should be treated as normalized controls positions between -1 and 1 instead of rad/s.
+It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.</p>
+<p>Message <a href="#RAW_RPM">RAW_RPM</a> for helicopters should send rotor with index 0, and then engines in order.</p>
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
-<hr />
-<p>Generated on 2024-03-28T14:07:36 from commit <a href="https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209">192aaee</a></p>
-<h2 id="definition_list">Definition list</h2>
+<h2 id="definition-list">Definition list</h2>
+<p>Generated on 2024-04-02T16:12:06 from commit <a href="https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209">192aaee</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>
@@ -124,8 +131,10 @@
   <li><a href="#PARAM_VALUE">PARAM_VALUE</a></li>
   <li><a href="#PARAM_SET">PARAM_SET</a></li>
   <li><a href="#MANUAL_CONTROL">MANUAL_CONTROL</a></li>
+  <li><a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a></li>
   <li><a href="#SIM_STATE">SIM_STATE</a></li>
   <li><a href="#STATUSTEXT">STATUSTEXT</a></li>
+  <li><a href="#RAW_RPM">RAW_RPM</a></li>
  </ul></li>
 </ul>
 <html>
@@ -622,6 +631,72 @@
     </tr>
    </tbody>
   </table>
+  <h3 id="MANUAL_SETPOINT">MANUAL_SETPOINT (<a href="#MANUAL_SETPOINT">
+    #81
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Setpoint in roll, pitch, yaw and thrust from the operator</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>roll</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired roll rate</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired pitch rate</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Desired yaw rate</td>
+    </tr>
+    <tr>
+     <td>thrust</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Collective thrust, normalized to 0 .. 1</td>
+    </tr>
+    <tr>
+     <td>mode_switch</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Flight mode switch position, 0.. 255</td>
+    </tr>
+    <tr>
+     <td>manual_override_switch</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Override mode switch position, 0.. 255</td>
+    </tr>
+   </tbody>
+  </table>
   <h3 id="SIM_STATE">SIM_STATE (<a href="#SIM_STATE">
     #108
    </a>
@@ -846,6 +921,43 @@
      <td>
      </td>
      <td>This chunk's sequence number; indexing is from zero.  Any null character in the text field is taken to mean this was the last chunk.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="RAW_RPM">RAW_RPM (<a href="#RAW_RPM">
+    #339
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>
+   <strong>
+    (MAVLink 2)
+   </strong>RPM sensor data message.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>index</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Index of this RPM sensor (0-indexed)</td>
+    </tr>
+    <tr>
+     <td>frequency</td>
+     <td>float</td>
+     <td>rpm</td>
+     <td>Indicated rate</td>
     </tr>
    </tbody>
   </table>

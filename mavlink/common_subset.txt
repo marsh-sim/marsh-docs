@@ -5,6 +5,8 @@
 # messages useful for simulation
 SIM_STATE
 MANUAL_CONTROL
+MANUAL_SETPOINT
+RAW_RPM
 
 # general utility messages
 STATUSTEXT

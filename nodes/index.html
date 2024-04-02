@@ -56,6 +56,8 @@
               <ul class="current">
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">Simulator nodes</a>
     <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#lidia-instruments">Lidia instruments</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="development/">Development</a>
@@ -106,8 +108,17 @@
 <p>The purpose of nodes is to maintain the <a href="https://en.wikipedia.org/wiki/Separation_of_concerns">separation of concerns</a> principle.
 In short, if each node has a single responsibility, it is easier to reuse them in new ways and avoid repeating work (see&nbsp;<a href="../rationale/">rationale</a>).</p>
 <p><img alt="diagram highlighting nodes in the structure of the simulator" src="simulator_variants_nodes.png" /></p>
+<p>When ran as a command, nodes should accept the IP MARSH Manager with <code>-m</code> and <code>--manager</code> option.</p>
 <p>Nodes created so far have been collected in the <a href="https://github.com/marsh-sim/sim-nodes">marsh-sim/sim-nodes repository</a>.
 You are welcome to ask questions, report bugs and contribute new scripts there.</p>
+<h2 id="lidia-instruments">Lidia instruments</h2>
+<p>Python package <a href="https://pypi.org/project/lidia/"><code>lidia</code></a> can be used with MARSH starting with version 0.10 to provide instrument visualisation.
+It can be installed using the <code>pip</code> command:</p>
+<pre><code class="language-bash">pip install lidia
+</code></pre>
+<p>The package has multiple sources of data to choose from, in this case start it like this:</p>
+<pre><code class="language-bash">lidia marsh
+</code></pre>
               
             </div>
           </div><footer>
