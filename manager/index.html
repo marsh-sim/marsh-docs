@@ -190,16 +190,21 @@ This binary file format is a de facto standard between multiple UAV flight stack
 <h2 id="roadmap">Roadmap</h2>
 <p>The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:</p>
 <ul>
-<li>Support for <a href="https://mavlink.io/en/services/parameter.html">Parameter Protocol</a>:<ul>
-<li>Requesting parameters from nodes on connecting and on start of saving data</li>
-<li>Showing parameters in Network View with a possibility to edit the values</li>
-<li><em>Maybe later:</em> parameter descriptions with <a href="https://mavlink.io/en/services/component_information.html">Component Metadata Protocol</a></li>
-<li><em>Maybe later:</em> setting parameters of multiple components based on test matrix</li>
-</ul>
-</li>
+<li>Approximate frequency of updates for fields in network view</li>
+<li>Emit parameters to log for nodes with <a href="../mavlink/marsh/#MARSH_MODE_SINGLE_MESSAGE">MARSH_MODE_SINGLE_MESSAGE</a></li>
 <li>Distribution:<ul>
 <li>Automated builds and releases on GitHub</li>
-<li>Windows installer with <code>windeployqt</code></li>
+<li>Windows package (with <code>windeployqt</code>)</li>
+</ul>
+</li>
+<li>Connecting nodes on serial port</li>
+<li>Button to remove timed out nodes from network view</li>
+<li>Graph visualisation, considering these candidate solutions:<ul>
+<li><a href="https://github.com/nasa/openmct">NASA OpenMCT</a> or <a href="https://github.com/grafana/grafana">Grafana</a><ul>
+<li>Expect updates over WebSocket, see <a href="https://github.com/mavlink/mavlink2rest">mavlink2rest</a></li>
+</ul>
+</li>
+<li>In-app with <a href="https://doc.qt.io/qt-6.5/qtcharts-overview.html">Qt Charts</a></li>
 </ul>
 </li>
 <li>Using full message definitions:<ul>
@@ -212,9 +217,15 @@ This binary file format is a de facto standard between multiple UAV flight stack
 <li>Show bitfields as a collection of flags</li>
 </ul>
 </li>
-<li><em>Maybe later:</em> using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants</li>
+<li><em>Maybe later:</em> using tooltips to show descriptions for message fields and enum constants</li>
 </ul>
 </li>
+<li>Extend support for <a href="https://mavlink.io/en/services/parameter.html">Parameter Protocol</a>:<ul>
+<li>Setting parameters of multiple components based on test matrix</li>
+<li>Parameter descriptions with <a href="https://mavlink.io/en/services/component_information.html">Component Metadata Protocol</a></li>
+</ul>
+</li>
+<li>Console showing <a href="../mavlink/common/#STATUSTEXT">STATUSTEXT</a> messages</li>
 <li>Replaying log files</li>
 <li>Allow unregistered clients to do <em>some</em> operations that would make sense for simple utility scripts, for example parameters</li>
 </ul>
