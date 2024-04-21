@@ -12,11 +12,12 @@ When in need of a definition for a given functionality which is not covered here
 
 ## Definition list
 
-Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209)
+Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-sim/mavlink/tree/58ab536c39f57cd40a99e38732736decd67dc1fc)
 
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
+  <li><a href="#MARSH_MODE_FLAGS">MARSH_MODE_FLAGS</a></li>
   <li><a href="#CONTROL_AXIS">CONTROL_AXIS</a></li>
   <li><a href="#MOTION_PLATFORM_MODE">MOTION_PLATFORM_MODE</a></li>
   <li><a href="#MOTION_PLATFORM_HEALTH">MOTION_PLATFORM_HEALTH</a></li>
@@ -37,7 +38,7 @@ Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-
    <a href="https://mavlink.io/en/messages/common.html">common.xml</a>
   </p>
   <h2>MAVLink Protocol Version</h2>
-  <p>The current MAVLink version is 2.2. The minor version numbers (after the dot) range from 1-255.</p>
+  <p>The current MAVLink version is 2.3. The minor version numbers (after the dot) range from 1-255.</p>
   <p>This file has protocol dialect: 2.</p>
   <h2 id="enums">MAVLink Type Enumerations</h2>
   <h3 id="MARSH_COMPONENT">MARSH_COMPONENT</h3>
@@ -116,6 +117,38 @@ Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-
       <a href="#MARSH_COMP_ID_CONTROL_LOADING">MARSH_COMP_ID_CONTROL_LOADING</a>
      </td>
      <td>Component measuring and actuating forces on pilot control inputs.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MARSH_MODE_FLAGS">MARSH_MODE_FLAGS</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>These values are MARSH-specific modes intended to be sent in custom_mode field of HEARTBEAT message.
+        Prefer defining values in the most significant byte (between 2^24 and 2^31) to leave the lower three bytes to contain a message id</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="MARSH_MODE_SINGLE_MESSAGE">
+     <td>0x1000000</td>
+     <td>
+      <a href="#MARSH_MODE_SINGLE_MESSAGE">MARSH_MODE_SINGLE_MESSAGE</a>
+     </td>
+     <td>Request Manager to only send one specific message, advised for very resource limited nodes or with control flow limitations like Simulink.
+          That message id should be in the lower three bytes of the mode, which can be done by adding it to the flags.</td>
+    </tr>
+    <tr id="MARSH_MODE_ALL_MESSAGES">
+     <td>0x2000000</td>
+     <td>
+      <a href="#MARSH_MODE_ALL_MESSAGES">MARSH_MODE_ALL_MESSAGES</a>
+     </td>
+     <td>Request Manager to send every message going out to any of the clients.</td>
     </tr>
    </tbody>
   </table>

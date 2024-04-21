@@ -16,7 +16,7 @@ Message [RAW_RPM](#RAW_RPM) for helicopters should send rotor with index 0, and 
 
 ## Definition list
 
-Generated on 2024-04-02T17:46:25 from commit [192aaee](https://github.com/marsh-sim/mavlink/tree/192aaeebd3655fb3c663cb1ac07a89d5ab2cd209)
+Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-sim/mavlink/tree/58ab536c39f57cd40a99e38732736decd67dc1fc)
 
 <ul>
  <li><a href="#enums">Enums</a><ul>
