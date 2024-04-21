@@ -73,3 +73,6 @@ After the initial round of comparison and developent, some examples were found i
     - More opinionated about the modules structure, should be written in C++
         - Partial support for Python; Simulink models through C++ code generation
     - Logs data to [HDF5](https://www.hdfgroup.org/solutions/hdf5/) which seems to be more widely used and more fit for the purpose format
+- [Extended Reality Flight Simulation and Control Lab](https://umbertosaetti.com/#lab) at University of Maryland
+    - Very similar objective of swapping between different models and cueing
+    - *Anegdotally:* Moved over from UDP to a differend transport because of performance

@@ -91,21 +91,28 @@ There are multiple external tools available for viewing the logs, notable exampl
 
 The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:
 
-- Support for [Parameter Protocol](https://mavlink.io/en/services/parameter.html):
-    - Requesting parameters from nodes on connecting and on start of saving data
-    - Showing parameters in Network View with a possibility to edit the values
-    - *Maybe later:* parameter descriptions with [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)
-    - *Maybe later:* setting parameters of multiple components based on test matrix
+- Approximate frequency of updates for fields in network view
+- Emit parameters to log for nodes with [MARSH_MODE_SINGLE_MESSAGE](../mavlink/marsh.md#MARSH_MODE_SINGLE_MESSAGE)
 - Distribution:
     - Automated builds and releases on GitHub
-    - Windows installer with `windeployqt`
+    - Windows package (with `windeployqt`)
+- Connecting nodes on serial port
+- Button to remove timed out nodes from network view
+- Graph visualisation, considering these candidate solutions:
+    - [NASA OpenMCT](https://github.com/nasa/openmct) or [Grafana](https://github.com/grafana/grafana)
+        - Expect updates over WebSocket, see [mavlink2rest](https://github.com/mavlink/mavlink2rest)
+    - In-app with [Qt Charts](https://doc.qt.io/qt-6.5/qtcharts-overview.html)
 - Using full message definitions:
     - Displaying units of message fields
         - Displaying angular values sent as radians also as degrees
     - Showing text identifiers for enum values
         - Find length of common prefix from enum names
         - Show bitfields as a collection of flags
-    - *Maybe later:* using Qt "What's This" role with tooltips to show descriptions for message fields and enum constants
+    - *Maybe later:* using tooltips to show descriptions for message fields and enum constants
+- Extend support for [Parameter Protocol](https://mavlink.io/en/services/parameter.html):
+    - Setting parameters of multiple components based on test matrix
+    - Parameter descriptions with [Component Metadata Protocol](https://mavlink.io/en/services/component_information.html)
+- Console showing [STATUSTEXT](../mavlink/common.md#STATUSTEXT) messages
 - Replaying log files
 - Allow unregistered clients to do *some* operations that would make sense for simple utility scripts, for example parameters
 
