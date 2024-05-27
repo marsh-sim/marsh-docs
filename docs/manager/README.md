@@ -120,9 +120,9 @@ The following are already planned future features of MARSH Manager, approximatel
 
 Contributions to [documentation](../documentation.md) and code are welcome.
 The repository is on GitHub as [marsh-sim/marsh-manager](https://github.com/marsh-sim/marsh-manager).
-If you notice a problem, or want to request a new feature, you can [create New issue](https://github.com/marsh-sim/marsh-manager/issues)
+If you notice a problem, or want to request a new feature, you can [create a new issue](https://github.com/marsh-sim/marsh-manager/issues)
 Code contributions are expected as [Pull Requests](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-pull-requests) to that repository.
-See the [developer documenttion](./development.md) to get started.
+See the [developer documentation](./development.md) to get started.
 
 ## Licenses
 
