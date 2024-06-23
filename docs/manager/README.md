@@ -91,7 +91,6 @@ There are multiple external tools available for viewing the logs, notable exampl
 
 The following are already planned future features of MARSH Manager, approximately in the order of priority / expected implementation date:
 
-- Approximate frequency of updates for fields in network view
 - Emit parameters to log for nodes with [MARSH_MODE_SINGLE_MESSAGE](../mavlink/marsh.md#MARSH_MODE_SINGLE_MESSAGE)
 - Distribution:
     - Automated builds and releases on GitHub
@@ -126,8 +125,8 @@ See the [developer documentation](./development.md) to get started.
 
 ## Licenses
 
-The code for MARSH Manager is licensed under [GNU General Public License v3.0](https://github.com/marsh-sim/marsh-manager/blob/main/LICENSE.txt)
+The code for MARSH Manager is licensed under [GNU General Public License v3.0](https://github.com/marsh-sim/marsh-manager/blob/main/LICENSE.txt).
 
-General application structure provided by [Qt Framework](https://www.qt.io/product) under terms of the [GNU Lesser General Public License (LGPL)](https://doc.qt.io/qt-6/lgpl.html)
+General application structure provided by [Qt Framework](https://www.qt.io/product) under terms of the [GNU Lesser General Public License (LGPL)](https://doc.qt.io/qt-6/lgpl.html).
 
-Communication between components with [MAVLink](https://mavlink.io/en/) using generated code under [MIT License](https://github.com/mavlink/mavlink/blob/master/COPYING)
+Communication between components with [MAVLink](https://mavlink.io/en/) using generated code under [MIT License](https://github.com/mavlink/mavlink/blob/master/COPYING).
