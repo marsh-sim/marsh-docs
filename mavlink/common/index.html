@@ -113,11 +113,14 @@
 <p>Message <a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a> is used for desired control positions (as displayed in <a href="https://pypi.org/project/lidia/">Lidia</a>), so the values for all fields should be treated as normalized controls positions between -1 and 1 instead of rad/s.
 It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.</p>
 <p>Message <a href="#RAW_RPM">RAW_RPM</a> for helicopters should send rotor with index 0, and then engines in order.</p>
+<p>The message <a href="#SIM_STATE">SIM_STATE</a> and other messages with accelerations, report them as would be measured by an on-board accelerometer.
+The values correspond to accelerations in the body reference frame axes: X forward, Y right, Z down.
+The gravity should also be included, so for a stationary and horizontal vehicle the acceleration vector in meters per second squared is [0, 0, -9.80665], with X component becoming positive as it accelerates forward (tested with <a href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html">ArduPilot SITL</a>).</p>
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-06-19T13:04:26 from commit <a href="https://github.com/marsh-sim/mavlink/tree/0721ae99fd47c2d2cee06faf7f6ecd867f7daa24">0721ae9</a></p>
+<p>Generated on 2024-06-23T13:33:44 from commit <a href="https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e">c0d8d14</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>

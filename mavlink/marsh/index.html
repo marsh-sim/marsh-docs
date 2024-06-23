@@ -113,7 +113,7 @@ All other projects need to generate and appropriate libraries, following the <a 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-06-19T13:04:26 from commit <a href="https://github.com/marsh-sim/mavlink/tree/0721ae99fd47c2d2cee06faf7f6ecd867f7daa24">0721ae9</a></p>
+<p>Generated on 2024-06-23T13:33:44 from commit <a href="https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e">c0d8d14</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
@@ -130,6 +130,7 @@ All other projects need to generate and appropriate libraries, following the <a 
   <li><a href="#MOTION_PLATFORM_STATE">MOTION_PLATFORM_STATE</a></li>
   <li><a href="#REXROTH_MOTION_PLATFORM">REXROTH_MOTION_PLATFORM</a></li>
   <li><a href="#MOTION_CUE_EXTRA">MOTION_CUE_EXTRA</a></li>
+  <li><a href="#EYE_TRACKING_DATA">EYE_TRACKING_DATA</a></li>
  </ul></li>
 </ul>
 <html>
@@ -1526,6 +1527,112 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>float</td>
      <td>m/s/s</td>
      <td>Z axis (heave) acceleration, positive down.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="EYE_TRACKING_DATA">EYE_TRACKING_DATA (<a href="#EYE_TRACKING_DATA">
+    #24405
+   </a>
+   )
+  </h3>
+  <p style="color:red">
+   <strong>WORK IN PROGRESS:</strong> Do not use in stable production environments (it may change).</p>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>
+   <strong>
+    (MAVLink 2)
+   </strong>Data for tracking of pilot eye gaze. In multi-crew situations, additional trackers should connect with different system id.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_usec</td>
+     <td>uint64_t</td>
+     <td>us</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_x</td>
+     <td>float</td>
+     <td>m</td>
+     <td>X axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_y</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Y axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_z</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Z axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>X axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Y axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_z</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Z axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>video_gaze_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on video feed x value (normalized 0..1, 0 is left, 1 is right), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>video_gaze_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on video feed y value (normalized 0..1, 0 is top, 1 is bottom), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>surface_id</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Identifier of surface for 2D gaze point, or an identified region when surface point is invalid. Set to zero if unknown/unused.</td>
+    </tr>
+    <tr>
+     <td>surface_gaze_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on surface x value (normalized 0..1, 0 is left, 1 is right), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>surface_gaze_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on surface y value (normalized 0..1, 0 is top, 1 is bottom), NaN if unknown</td>
     </tr>
    </tbody>
   </table>
