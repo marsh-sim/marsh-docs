@@ -11,6 +11,10 @@ It is not supported by ArduPilot at all, and only used for Rover in PX4, so no c
 
 Message [RAW_RPM](#RAW_RPM) for helicopters should send rotor with index 0, and then engines in order.
 
+The message [SIM_STATE](#SIM_STATE) and other messages with accelerations, report them as would be measured by an on-board accelerometer.
+The values correspond to accelerations in the body reference frame axes: X forward, Y right, Z down.
+The gravity should also be included, so for a stationary and horizontal vehicle the acceleration vector in meters per second squared is [0, 0, -9.80665], with X component becoming positive as it accelerates forward (tested with [ArduPilot SITL](https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html)).
+
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
