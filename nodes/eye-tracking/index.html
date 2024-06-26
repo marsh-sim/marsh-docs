@@ -74,6 +74,8 @@
     </li>
         </ul>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#creating-new-screens">Creating new screens</a>
+    </li>
     </ul>
                   </li>
                   <li class="toctree-l1"><a class="reference internal" href="../development/">Development</a>
@@ -156,6 +158,20 @@ The PureRef menu is opened by right clicking in the window, or any of the images
 <h3 id="drone-control">Drone control</h3>
 <p>Surface id <strong>4</strong> for controlling cooperating Unmanned Aerial Vehicles (UAVs), example: an instance of <a href="http://qgroundcontrol.com/">QGroundControl</a></p>
 <p><img alt="diagram of AprilTags layout for drone control" src="../markers_drone_control.svg" /></p>
+<h2 id="creating-new-screens">Creating new screens</h2>
+<p>The images in the AprilTags repository have a very small resolution, with pixels corresponding to marker features.
+After loading them and scaling to a a larger size they will look blurry.
+To fix that toggle image sampling on selected images to nearest neighbor with <code>Alt+T</code>, and/or set this sampling as default in the settings.</p>
+<p>To keep a consistent size, open one of the reference images in full screen, and adjust one of the markers to match.
+Once one marker in a scene has a correct size, select it first followed by any other, then right click and select "Images &gt; Normalize &gt; From first &gt; Size".</p>
+<p>Similarly, when an image is positioned in a desired corner, select the reference first, then an image you want to move and use "Images &gt; Align &gt; Left/Up, etc.", which can also be done with <code>Ctrl</code> and arrow keys.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>As of writing, the images cannot cover the task bar in Windows.
+It's suggested to align them with the taskbar instead, but when defining the surface in Pupil Capture, move the corner to corner of the display.</p>
+</div>
+<p>When finished, you can save the PureRef scene to <code>.pur</code> file which will also contain the image data using "Save &gt; Save as" menu.</p>
+<p>With the overlay shown on screen, follow the instructions about <a href="https://docs.pupil-labs.com/core/software/pupil-capture/#surface-tracking">Surface Tracking in Pupil Capture documentation</a>.</p>
               
             </div>
           </div><footer>
