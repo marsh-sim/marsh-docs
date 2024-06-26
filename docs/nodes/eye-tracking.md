@@ -52,3 +52,22 @@ Surface id **3** showing control positions, example: page `controls` of [lidia](
 Surface id **4** for controlling cooperating Unmanned Aerial Vehicles (UAVs), example: an instance of [QGroundControl](http://qgroundcontrol.com/)
 
 ![diagram of AprilTags layout for drone control](./markers_drone_control.svg)
+
+## Creating new screens
+
+The images in the AprilTags repository have a very small resolution, with pixels corresponding to marker features.
+After loading them and scaling to a a larger size they will look blurry.
+To fix that toggle image sampling on selected images to nearest neighbor with `Alt+T`, and/or set this sampling as default in the settings.
+
+To keep a consistent size, open one of the reference images in full screen, and adjust one of the markers to match.
+Once one marker in a scene has a correct size, select it first followed by any other, then right click and select "Images > Normalize > From first > Size".
+
+Similarly, when an image is positioned in a desired corner, select the reference first, then an image you want to move and use "Images > Align > Left/Up, etc.", which can also be done with `Ctrl` and arrow keys.
+
+!!! warning
+    As of writing, the images cannot cover the task bar in Windows.
+    It's suggested to align them with the taskbar instead, but when defining the surface in Pupil Capture, move the corner to corner of the display.
+
+When finished, you can save the PureRef scene to `.pur` file which will also contain the image data using "Save > Save as" menu.
+
+With the overlay shown on screen, follow the instructions about [Surface Tracking in Pupil Capture documentation](https://docs.pupil-labs.com/core/software/pupil-capture/#surface-tracking).
