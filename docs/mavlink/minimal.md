@@ -11,7 +11,7 @@ Generally the nodes in the simulator system are expected to send [MAV_AUTOPILOT_
 
 ## Definition list
 
-Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-sim/mavlink/tree/58ab536c39f57cd40a99e38732736decd67dc1fc)
+Generated on 2024-06-26T16:15:45 from commit [c0d8d14](https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e)
 
 <ul>
  <li><a href="#enums">Enums</a><ul>

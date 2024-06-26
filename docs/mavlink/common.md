@@ -20,7 +20,7 @@ The gravity should also be included, so for a stationary and horizontal vehicle 
 
 ## Definition list
 
-Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-sim/mavlink/tree/58ab536c39f57cd40a99e38732736decd67dc1fc)
+Generated on 2024-06-26T16:15:45 from commit [c0d8d14](https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e)
 
 <ul>
  <li><a href="#enums">Enums</a><ul>
@@ -34,6 +34,8 @@ Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-
   <li><a href="#PARAM_REQUEST_LIST">PARAM_REQUEST_LIST</a></li>
   <li><a href="#PARAM_VALUE">PARAM_VALUE</a></li>
   <li><a href="#PARAM_SET">PARAM_SET</a></li>
+  <li><a href="#ATTITUDE">ATTITUDE</a></li>
+  <li><a href="#LOCAL_POSITION_NED">LOCAL_POSITION_NED</a></li>
   <li><a href="#MANUAL_CONTROL">MANUAL_CONTROL</a></li>
   <li><a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a></li>
   <li><a href="#SIM_STATE">SIM_STATE</a></li>
@@ -402,6 +404,132 @@ Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-
       <a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a>
      </td>
      <td>Onboard parameter type.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="ATTITUDE">ATTITUDE (<a href="#ATTITUDE">
+    #30
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>The attitude in the aeronautical frame (right-handed, Z-down, Y-right, X-front, ZYX, intrinsic).</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>roll</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>Roll angle (-pi..+pi)</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>Pitch angle (-pi..+pi)</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>Yaw angle (-pi..+pi)</td>
+    </tr>
+    <tr>
+     <td>rollspeed</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Roll angular speed</td>
+    </tr>
+    <tr>
+     <td>pitchspeed</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Pitch angular speed</td>
+    </tr>
+    <tr>
+     <td>yawspeed</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Yaw angular speed</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="LOCAL_POSITION_NED">LOCAL_POSITION_NED (<a href="#LOCAL_POSITION_NED">
+    #32
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>The filtered local position (e.g. fused computer vision and accelerometers). Coordinate frame is right-handed, Z-axis down (aeronautical frame, NED / north-east-down convention)</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>x</td>
+     <td>float</td>
+     <td>m</td>
+     <td>X Position</td>
+    </tr>
+    <tr>
+     <td>y</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Y Position</td>
+    </tr>
+    <tr>
+     <td>z</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Z Position</td>
+    </tr>
+    <tr>
+     <td>vx</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>X Speed</td>
+    </tr>
+    <tr>
+     <td>vy</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>Y Speed</td>
+    </tr>
+    <tr>
+     <td>vz</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>Z Speed</td>
     </tr>
    </tbody>
   </table>

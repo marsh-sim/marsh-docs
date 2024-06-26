@@ -14,6 +14,7 @@ nav:
     - Development: manager/development.md
   - Nodes:
     - Simulator nodes: nodes/README.md
+    - Eye tracking: nodes/eye-tracking.md
     - Development: nodes/development.md
   - MAVLink definitions:
     - Minimal Set: mavlink/minimal.md

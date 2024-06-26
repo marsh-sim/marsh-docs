@@ -12,7 +12,7 @@ When in need of a definition for a given functionality which is not covered here
 
 ## Definition list
 
-Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-sim/mavlink/tree/58ab536c39f57cd40a99e38732736decd67dc1fc)
+Generated on 2024-06-26T16:15:45 from commit [c0d8d14](https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e)
 
 <ul>
  <li><a href="#enums">Enums</a><ul>
@@ -29,6 +29,8 @@ Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-
   <li><a href="#CONTROL_LOADING_AXIS">CONTROL_LOADING_AXIS</a></li>
   <li><a href="#MOTION_PLATFORM_STATE">MOTION_PLATFORM_STATE</a></li>
   <li><a href="#REXROTH_MOTION_PLATFORM">REXROTH_MOTION_PLATFORM</a></li>
+  <li><a href="#MOTION_CUE_EXTRA">MOTION_CUE_EXTRA</a></li>
+  <li><a href="#EYE_TRACKING_DATA">EYE_TRACKING_DATA</a></li>
  </ul></li>
 </ul>
 <html>
@@ -1357,6 +1359,180 @@ Generated on 2024-04-21T10:52:41 from commit [58ab536](https://github.com/marsh-
      <td>
      </td>
      <td>Yaw special effect setpoint, positive right.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MOTION_CUE_EXTRA">MOTION_CUE_EXTRA (<a href="#MOTION_CUE_EXTRA">
+    #24404
+   </a>
+   )
+  </h3>
+  <p style="color:red">
+   <strong>WORK IN PROGRESS:</strong> Do not use in stable production environments (it may change).</p>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>
+   <strong>
+    (MAVLink 2)
+   </strong>These values are an extra cue that should be added to accelerations and rotations etc. resulting from aircraft state, with the resulting cue being the sum of the latest aircraft and extra values. An example use case would be a cockpit shaker.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>vel_pitch</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Pitch velocity, positive nose up.</td>
+    </tr>
+    <tr>
+     <td>vel_roll</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Roll velocity, positive right.</td>
+    </tr>
+    <tr>
+     <td>vel_yaw</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Yaw velocity, positive right.</td>
+    </tr>
+    <tr>
+     <td>acc_x</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>X axis (surge) acceleration, positive forward.</td>
+    </tr>
+    <tr>
+     <td>acc_y</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Y axis (sway) acceleration, positive right.</td>
+    </tr>
+    <tr>
+     <td>acc_z</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>Z axis (heave) acceleration, positive down.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="EYE_TRACKING_DATA">EYE_TRACKING_DATA (<a href="#EYE_TRACKING_DATA">
+    #24405
+   </a>
+   )
+  </h3>
+  <p style="color:red">
+   <strong>WORK IN PROGRESS:</strong> Do not use in stable production environments (it may change).</p>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>
+   <strong>
+    (MAVLink 2)
+   </strong>Data for tracking of pilot eye gaze. In multi-crew situations, additional trackers should connect with different system id.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_usec</td>
+     <td>uint64_t</td>
+     <td>us</td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_x</td>
+     <td>float</td>
+     <td>m</td>
+     <td>X axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_y</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Y axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_origin_z</td>
+     <td>float</td>
+     <td>m</td>
+     <td>Z axis of gaze origin point, NaN if unknown. The reference system depends on specific application.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>X axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Y axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>gaze_direction_z</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Z axis of gaze direction vector, expected to be normalized to unit magnitude, NaN if unknown. The reference system should match origin point.</td>
+    </tr>
+    <tr>
+     <td>video_gaze_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on video feed x value (normalized 0..1, 0 is left, 1 is right), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>video_gaze_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on video feed y value (normalized 0..1, 0 is top, 1 is bottom), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>surface_id</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>Identifier of surface for 2D gaze point, or an identified region when surface point is invalid. Set to zero if unknown/unused.</td>
+    </tr>
+    <tr>
+     <td>surface_gaze_x</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on surface x value (normalized 0..1, 0 is left, 1 is right), NaN if unknown</td>
+    </tr>
+    <tr>
+     <td>surface_gaze_y</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>Gaze focal point on surface y value (normalized 0..1, 0 is top, 1 is bottom), NaN if unknown</td>
     </tr>
    </tbody>
   </table>
