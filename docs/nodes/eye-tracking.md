@@ -11,7 +11,7 @@ This article describes setup for eye tracking experiments using a wearable eye t
 
 ## Usage
 
-The PureRef scenes are prepared using [AprilTags tag36h11 markers](https://github.com/AprilRobotics/apriltag-imgs/tree/master/tag36h11) in every corner of the display.
+The PureRef scenes are prepared to display [AprilTags tag36h11 markers](https://github.com/AprilRobotics/apriltag-imgs/tree/master/tag36h11) in every corner of the screen.
 
 Steps to use a scene on a given display.
 The PureRef menu is opened by right clicking in the window, or any of the images when shown as overlay.
@@ -39,7 +39,7 @@ Surface id **1**, example: page `pfd` of [lidia](./README.md#lidia-instruments).
 
 Surface id **2** with a view outside the aircraft, or just the screen with visualisation
 
-![diagram of AprilTags layout for outside view](./markers_outside_view.svg.svg)
+![diagram of AprilTags layout for outside view](./markers_outside_view.svg)
 
 ### Inceptors
 
@@ -56,8 +56,8 @@ Surface id **4** for controlling cooperating Unmanned Aerial Vehicles (UAVs), ex
 ## Creating new screens
 
 The images in the AprilTags repository have a very small resolution, with pixels corresponding to marker features.
-After loading them and scaling to a a larger size they will look blurry.
-To fix that toggle image sampling on selected images to nearest neighbor with `Alt+T`, and/or set this sampling as default in the settings.
+After loading them into PureRef and scaling to a a larger size they will look blurry.
+To fix that, toggle image sampling on selected images to "nearest neighbor" with `Alt+T`, and/or set this sampling as default in the settings.
 
 To keep a consistent size, open one of the reference images in full screen, and adjust one of the markers to match.
 Once one marker in a scene has a correct size, select it first followed by any other, then right click and select "Images > Normalize > From first > Size".
@@ -68,6 +68,8 @@ Similarly, when an image is positioned in a desired corner, select the reference
     As of writing, the images cannot cover the task bar in Windows.
     It's suggested to align them with the taskbar instead, but when defining the surface in Pupil Capture, move the corner to corner of the display.
 
-When finished, you can save the PureRef scene to `.pur` file which will also contain the image data using "Save > Save as" menu.
+When finished, you can save the PureRef scene to `.pur` file using "Save > Save as" menu.
+This file is self-contained, including the data of all used images.
 
 With the overlay shown on screen, follow the instructions about [Surface Tracking in Pupil Capture documentation](https://docs.pupil-labs.com/core/software/pupil-capture/#surface-tracking).
+For the [`pupil_eye_tracker`](https://github.com/marsh-sim/sim-nodes/blob/main/pupil_eye_tracker.py) script to correctly label the surfaces, name the surfaces same way as subsections in [Defined screens](#defined-screens).
