@@ -118,11 +118,14 @@ It is not supported by ArduPilot at all, and only used for Rover in PX4, so no c
 <p>The message <a href="#SIM_STATE">SIM_STATE</a> and other messages with accelerations, report them as would be measured by an on-board accelerometer.
 The values correspond to accelerations in the body reference frame axes: X forward, Y right, Z down.
 The gravity should also be included, so for a stationary and horizontal vehicle the acceleration vector in meters per second squared is [0, 0, -9.80665], with X component becoming positive as it accelerates forward (tested with <a href="https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html">ArduPilot SITL</a>).</p>
+<p>Specifically message <a href="#SIM_STATE">SIM_STATE</a> should be sent with attitude encoded both as quaternion and Euler angles if possible.
+If a sender is outputting only Euler angles, the quaternion should be sent as [0, 0, 0, 0] (instead of [1, 0, 0, 0] for identity rotation).
+The receivers can detect if the quaternion contains valid data by comparing the vector magnitude (all components squared) to 1 with some tolerance for numeric error.</p>
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-06-27T07:07:50 from commit <a href="https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e">c0d8d14</a></p>
+<p>Generated on 2024-09-04T13:00:31 from commit <a href="https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e">c0d8d14</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>
