@@ -15,6 +15,10 @@ The message [SIM_STATE](#SIM_STATE) and other messages with accelerations, repor
 The values correspond to accelerations in the body reference frame axes: X forward, Y right, Z down.
 The gravity should also be included, so for a stationary and horizontal vehicle the acceleration vector in meters per second squared is [0, 0, -9.80665], with X component becoming positive as it accelerates forward (tested with [ArduPilot SITL](https://ardupilot.org/dev/docs/sitl-simulator-software-in-the-loop.html)).
 
+Specifically message [SIM_STATE](#SIM_STATE) should be sent with attitude encoded both as quaternion and Euler angles if possible.
+If a sender is outputting only Euler angles, the quaternion should be sent as [0, 0, 0, 0] (instead of [1, 0, 0, 0] for identity rotation).
+The receivers can detect if the quaternion contains valid data by comparing the vector magnitude (all components squared) to 1 with some tolerance for numeric error.
+
 <!-- markdownlint-disable -->
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
