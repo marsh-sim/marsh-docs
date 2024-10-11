@@ -115,7 +115,7 @@ All other projects need to generate and appropriate libraries, following the <a 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-09-04T13:00:31 from commit <a href="https://github.com/marsh-sim/mavlink/tree/c0d8d14c0c71a1b78d1471b89d2652bb106a8d4e">c0d8d14</a></p>
+<p>Generated on 2024-10-11T11:42:43 from commit <a href="https://github.com/marsh-sim/mavlink/tree/3c260c18be435f65d34dd4c196240b98ad397d43">3c260c1</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
@@ -142,7 +142,7 @@ All other projects need to generate and appropriate libraries, following the <a 
    <a href="https://mavlink.io/en/messages/common.html">common.xml</a>
   </p>
   <h2>MAVLink Protocol Version</h2>
-  <p>The current MAVLink version is 2.3. The minor version numbers (after the dot) range from 1-255.</p>
+  <p>The current MAVLink version is 2.4. The minor version numbers (after the dot) range from 1-255.</p>
   <p>This file has protocol dialect: 2.</p>
   <h2 id="enums">MAVLink Type Enumerations</h2>
   <h3 id="MARSH_COMPONENT">MARSH_COMPONENT</h3>
@@ -270,19 +270,19 @@ All other projects need to generate and appropriate libraries, following the <a 
     </tr>
    </thead>
    <tbody>
-    <tr id="CONTROL_AXIS_PITCH">
-     <td>0</td>
-     <td>
-      <a href="#CONTROL_AXIS_PITCH">CONTROL_AXIS_PITCH</a>
-     </td>
-     <td>Pitch axis, with positive values corresponding to stick forward movement, causing the vehicle to move nose down. For helicopters this is longitudinal cyclic.</td>
-    </tr>
     <tr id="CONTROL_AXIS_ROLL">
-     <td>1</td>
+     <td>0</td>
      <td>
       <a href="#CONTROL_AXIS_ROLL">CONTROL_AXIS_ROLL</a>
      </td>
      <td>Roll axis, with positive values corresponding to stick right movement, causing the vehicle to roll right. For helicopters this is lateral cyclic.</td>
+    </tr>
+    <tr id="CONTROL_AXIS_PITCH">
+     <td>1</td>
+     <td>
+      <a href="#CONTROL_AXIS_PITCH">CONTROL_AXIS_PITCH</a>
+     </td>
+     <td>Pitch axis, with positive values corresponding to stick forward movement, causing the vehicle to move nose down. For helicopters this is longitudinal cyclic.</td>
     </tr>
     <tr id="CONTROL_AXIS_THRUST">
      <td>2</td>
@@ -1133,20 +1133,20 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Z axis (heave) position, positive down.</td>
     </tr>
     <tr>
-     <td>pitch</td>
-     <td>float</td>
-     <td>rad</td>
-     <td>
-     </td>
-     <td>Pitch position, positive nose up.</td>
-    </tr>
-    <tr>
      <td>roll</td>
      <td>float</td>
      <td>rad</td>
      <td>
      </td>
      <td>Roll position, positive right.</td>
+    </tr>
+    <tr>
+     <td>pitch</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>
+     </td>
+     <td>Pitch position, positive nose up.</td>
     </tr>
     <tr>
      <td>yaw</td>
@@ -1181,20 +1181,20 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Z axis (heave) velocity, positive down.</td>
     </tr>
     <tr>
-     <td>vel_pitch</td>
-     <td>float</td>
-     <td>rad/s</td>
-     <td>
-     </td>
-     <td>Pitch velocity, positive nose up.</td>
-    </tr>
-    <tr>
      <td>vel_roll</td>
      <td>float</td>
      <td>rad/s</td>
      <td>
      </td>
      <td>Roll velocity, positive right.</td>
+    </tr>
+    <tr>
+     <td>vel_pitch</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>
+     </td>
+     <td>Pitch velocity, positive nose up.</td>
     </tr>
     <tr>
      <td>vel_yaw</td>
@@ -1229,15 +1229,6 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Z axis (heave) acceleration, positive down.</td>
     </tr>
     <tr>
-     <td>acc_pitch</td>
-     <td>float</td>
-     <td>
-     </td>
-     <td>
-     </td>
-     <td>Pitch acceleration, positive nose up. Unit rad/s/s, currently not part of mavschema.xsd</td>
-    </tr>
-    <tr>
      <td>acc_roll</td>
      <td>float</td>
      <td>
@@ -1245,6 +1236,15 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>
      </td>
      <td>Roll acceleration, positive right. Unit rad/s/s, currently not part of mavschema.xsd</td>
+    </tr>
+    <tr>
+     <td>acc_pitch</td>
+     <td>float</td>
+     <td>
+     </td>
+     <td>
+     </td>
+     <td>Pitch acceleration, positive nose up. Unit rad/s/s, currently not part of mavschema.xsd</td>
     </tr>
     <tr>
      <td>acc_yaw</td>
@@ -1391,20 +1391,20 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Z axis (heave) platform setpoint, positive down.</td>
     </tr>
     <tr>
-     <td>platform_setpoint_pitch</td>
-     <td>float</td>
-     <td>rad</td>
-     <td>
-     </td>
-     <td>Pitch platform setpoint, positive nose up.</td>
-    </tr>
-    <tr>
      <td>platform_setpoint_roll</td>
      <td>float</td>
      <td>rad</td>
      <td>
      </td>
      <td>Roll platform setpoint, positive right.</td>
+    </tr>
+    <tr>
+     <td>platform_setpoint_pitch</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>
+     </td>
+     <td>Pitch platform setpoint, positive nose up.</td>
     </tr>
     <tr>
      <td>platform_setpoint_yaw</td>
@@ -1439,20 +1439,20 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Z axis (heave) special effect setpoint, positive down.</td>
     </tr>
     <tr>
-     <td>effect_setpoint_pitch</td>
-     <td>float</td>
-     <td>rad</td>
-     <td>
-     </td>
-     <td>Pitch special effect setpoint, positive nose up.</td>
-    </tr>
-    <tr>
      <td>effect_setpoint_roll</td>
      <td>float</td>
      <td>rad</td>
      <td>
      </td>
      <td>Roll special effect setpoint, positive right.</td>
+    </tr>
+    <tr>
+     <td>effect_setpoint_pitch</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>
+     </td>
+     <td>Pitch special effect setpoint, positive nose up.</td>
     </tr>
     <tr>
      <td>effect_setpoint_yaw</td>
@@ -1495,16 +1495,16 @@ All other projects need to generate and appropriate libraries, following the <a 
      <td>Timestamp (time since system boot).</td>
     </tr>
     <tr>
-     <td>vel_pitch</td>
-     <td>float</td>
-     <td>rad/s</td>
-     <td>Pitch velocity, positive nose up.</td>
-    </tr>
-    <tr>
      <td>vel_roll</td>
      <td>float</td>
      <td>rad/s</td>
      <td>Roll velocity, positive right.</td>
+    </tr>
+    <tr>
+     <td>vel_pitch</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>Pitch velocity, positive nose up.</td>
     </tr>
     <tr>
      <td>vel_yaw</td>
