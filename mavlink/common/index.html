@@ -125,11 +125,13 @@ The receivers can detect if the quaternion contains valid data by comparing the 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-10-11T11:42:43 from commit <a href="https://github.com/marsh-sim/mavlink/tree/3c260c18be435f65d34dd4c196240b98ad397d43">3c260c1</a></p>
+<p>Generated on 2024-12-09T13:49:36 from commit <a href="https://github.com/marsh-sim/mavlink/tree/153d474873a461f1554c2c34aaa864f818509eef">153d474</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
+  <li><a href="#MAV_FRAME">MAV_FRAME</a></li>
   <li><a href="#MAV_PARAM_TYPE">MAV_PARAM_TYPE</a></li>
   <li><a href="#MAV_SEVERITY">MAV_SEVERITY</a></li>
+  <li><a href="#POSITION_TARGET_TYPEMASK">POSITION_TARGET_TYPEMASK</a></li>
  </ul></li>
  <li><a href="#mav_commands">Mav Commands</a><ul>
  </ul></li>
@@ -142,6 +144,8 @@ The receivers can detect if the quaternion contains valid data by comparing the 
   <li><a href="#LOCAL_POSITION_NED">LOCAL_POSITION_NED</a></li>
   <li><a href="#MANUAL_CONTROL">MANUAL_CONTROL</a></li>
   <li><a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a></li>
+  <li><a href="#SET_POSITION_TARGET_LOCAL_NED">SET_POSITION_TARGET_LOCAL_NED</a></li>
+  <li><a href="#POSITION_TARGET_LOCAL_NED">POSITION_TARGET_LOCAL_NED</a></li>
   <li><a href="#SIM_STATE">SIM_STATE</a></li>
   <li><a href="#STATUSTEXT">STATUSTEXT</a></li>
   <li><a href="#RAW_RPM">RAW_RPM</a></li>
@@ -157,6 +161,223 @@ The receivers can detect if the quaternion contains valid data by comparing the 
   <p>The current MAVLink version is 2.3. The minor version numbers (after the dot) range from 1-255.</p>
   <p>This file has protocol dialect: 0.</p>
   <h2 id="enums">MAVLink Type Enumerations</h2>
+  <h3 id="MAV_FRAME">MAV_FRAME</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>Coordinate frames used by MAVLink. Not all frames are supported by all commands, messages, or vehicles.
+
+      Global frames use the following naming conventions:
+      - "GLOBAL": Global coordinate frame with WGS84 latitude/longitude and altitude positive over mean sea level (MSL) by default.
+        The following modifiers may be used with "GLOBAL":
+        - "RELATIVE_ALT": Altitude is relative to the vehicle home position rather than MSL.
+        - "TERRAIN_ALT": Altitude is relative to ground level rather than MSL.
+        - "INT": Latitude/longitude (in degrees) are scaled by multiplying by 1E7.
+
+      Local frames use the following naming conventions:
+      - "LOCAL": Origin of local frame is fixed relative to earth. Unless otherwise specified this origin is the origin of the vehicle position-estimator ("EKF").
+      - "BODY": Origin of local frame travels with the vehicle. NOTE, "BODY" does NOT indicate alignment of frame axis with vehicle attitude.
+      - "OFFSET": Deprecated synonym for "BODY" (origin travels with the vehicle). Not to be used for new frames.
+
+      Some deprecated frames do not follow these conventions (e.g. <a href="#MAV_FRAME_BODY_NED">MAV_FRAME_BODY_NED</a> and <a href="#MAV_FRAME_BODY_OFFSET_NED">MAV_FRAME_BODY_OFFSET_NED</a>).</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="MAV_FRAME_GLOBAL">
+     <td>0</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL">MAV_FRAME_GLOBAL</a>
+     </td>
+     <td>Global (WGS84) coordinate frame + altitude relative to mean sea level (MSL).</td>
+    </tr>
+    <tr id="MAV_FRAME_LOCAL_NED">
+     <td>1</td>
+     <td>
+      <a href="#MAV_FRAME_LOCAL_NED">MAV_FRAME_LOCAL_NED</a>
+     </td>
+     <td>NED local tangent frame (x: North, y: East, z: Down) with origin fixed relative to earth.</td>
+    </tr>
+    <tr id="MAV_FRAME_MISSION">
+     <td>2</td>
+     <td>
+      <a href="#MAV_FRAME_MISSION">MAV_FRAME_MISSION</a>
+     </td>
+     <td>NOT a coordinate frame, indicates a mission command.</td>
+    </tr>
+    <tr id="MAV_FRAME_GLOBAL_RELATIVE_ALT">
+     <td>3</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL_RELATIVE_ALT">MAV_FRAME_GLOBAL_RELATIVE_ALT</a>
+     </td>
+     <td>Global (WGS84) coordinate frame + altitude relative to the home position.</td>
+    </tr>
+    <tr id="MAV_FRAME_LOCAL_ENU">
+     <td>4</td>
+     <td>
+      <a href="#MAV_FRAME_LOCAL_ENU">MAV_FRAME_LOCAL_ENU</a>
+     </td>
+     <td>ENU local tangent frame (x: East, y: North, z: Up) with origin fixed relative to earth.</td>
+    </tr>
+    <tr id="MAV_FRAME_GLOBAL_INT">
+     <td>5</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL_INT">MAV_FRAME_GLOBAL_INT</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_GLOBAL">MAV_FRAME_GLOBAL</a> (2024-03).
+
+
+  Use <a href="#MAV_FRAME_GLOBAL">MAV_FRAME_GLOBAL</a> in <a href="#COMMAND_INT">COMMAND_INT</a> (and elsewhere) as a synonymous replacement.</p>
+     </td>
+     <td>Global (WGS84) coordinate frame (scaled) + altitude relative to mean sea level (MSL).</td>
+    </tr>
+    <tr id="MAV_FRAME_GLOBAL_RELATIVE_ALT_INT">
+     <td>6</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL_RELATIVE_ALT_INT">MAV_FRAME_GLOBAL_RELATIVE_ALT_INT</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_GLOBAL_RELATIVE_ALT">MAV_FRAME_GLOBAL_RELATIVE_ALT</a> (2024-03).
+
+
+  Use <a href="#MAV_FRAME_GLOBAL_RELATIVE_ALT">MAV_FRAME_GLOBAL_RELATIVE_ALT</a> in <a href="#COMMAND_INT">COMMAND_INT</a> (and elsewhere) as a synonymous replacement.</p>
+     </td>
+     <td>Global (WGS84) coordinate frame (scaled) + altitude relative to the home position.</td>
+    </tr>
+    <tr id="MAV_FRAME_LOCAL_OFFSET_NED">
+     <td>7</td>
+     <td>
+      <a href="#MAV_FRAME_LOCAL_OFFSET_NED">MAV_FRAME_LOCAL_OFFSET_NED</a>
+     </td>
+     <td>NED local tangent frame (x: North, y: East, z: Down) with origin that travels with the vehicle.</td>
+    </tr>
+    <tr id="MAV_FRAME_BODY_NED">
+     <td>8</td>
+     <td>
+      <a href="#MAV_FRAME_BODY_NED">MAV_FRAME_BODY_NED</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_BODY_FRD">MAV_FRAME_BODY_FRD</a> (2019-08).</p>
+     </td>
+     <td>Same as <a href="#MAV_FRAME_LOCAL_NED">MAV_FRAME_LOCAL_NED</a> when used to represent position values. Same as <a href="#MAV_FRAME_BODY_FRD">MAV_FRAME_BODY_FRD</a> when used with velocity/acceleration values.</td>
+    </tr>
+    <tr id="MAV_FRAME_BODY_OFFSET_NED">
+     <td>9</td>
+     <td>
+      <a href="#MAV_FRAME_BODY_OFFSET_NED">MAV_FRAME_BODY_OFFSET_NED</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_BODY_FRD">MAV_FRAME_BODY_FRD</a> (2019-08).</p>
+     </td>
+     <td>This is the same as <a href="#MAV_FRAME_BODY_FRD">MAV_FRAME_BODY_FRD</a>.</td>
+    </tr>
+    <tr id="MAV_FRAME_GLOBAL_TERRAIN_ALT">
+     <td>10</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL_TERRAIN_ALT">MAV_FRAME_GLOBAL_TERRAIN_ALT</a>
+     </td>
+     <td>Global (WGS84) coordinate frame with AGL altitude (altitude at ground level).</td>
+    </tr>
+    <tr id="MAV_FRAME_GLOBAL_TERRAIN_ALT_INT">
+     <td>11</td>
+     <td>
+      <a href="#MAV_FRAME_GLOBAL_TERRAIN_ALT_INT">MAV_FRAME_GLOBAL_TERRAIN_ALT_INT</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_GLOBAL_TERRAIN_ALT">MAV_FRAME_GLOBAL_TERRAIN_ALT</a> (2024-03).
+
+
+  Use <a href="#MAV_FRAME_GLOBAL_TERRAIN_ALT">MAV_FRAME_GLOBAL_TERRAIN_ALT</a> in <a href="#COMMAND_INT">COMMAND_INT</a> (and elsewhere) as a synonymous replacement.</p>
+     </td>
+     <td>Global (WGS84) coordinate frame (scaled) with AGL altitude (altitude at ground level).</td>
+    </tr>
+    <tr id="MAV_FRAME_BODY_FRD">
+     <td>12</td>
+     <td>
+      <a href="#MAV_FRAME_BODY_FRD">MAV_FRAME_BODY_FRD</a>
+     </td>
+     <td>FRD local frame aligned to the vehicle's attitude (x: Forward, y: Right, z: Down) with an origin that travels with vehicle.</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_13">
+     <td>13</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_13">MAV_FRAME_RESERVED_13</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by  (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_BODY_FLU - Body fixed frame of reference, Z-up (x: Forward, y: Left, z: Up).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_14">
+     <td>14</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_14">MAV_FRAME_RESERVED_14</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FRD">MAV_FRAME_LOCAL_FRD</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_MOCAP_NED - Odometry local coordinate frame of data given by a motion capture system, Z-down (x: North, y: East, z: Down).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_15">
+     <td>15</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_15">MAV_FRAME_RESERVED_15</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FLU">MAV_FRAME_LOCAL_FLU</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_MOCAP_ENU - Odometry local coordinate frame of data given by a motion capture system, Z-up (x: East, y: North, z: Up).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_16">
+     <td>16</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_16">MAV_FRAME_RESERVED_16</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FRD">MAV_FRAME_LOCAL_FRD</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_VISION_NED - Odometry local coordinate frame of data given by a vision estimation system, Z-down (x: North, y: East, z: Down).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_17">
+     <td>17</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_17">MAV_FRAME_RESERVED_17</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FLU">MAV_FRAME_LOCAL_FLU</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_VISION_ENU - Odometry local coordinate frame of data given by a vision estimation system, Z-up (x: East, y: North, z: Up).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_18">
+     <td>18</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_18">MAV_FRAME_RESERVED_18</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FRD">MAV_FRAME_LOCAL_FRD</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_ESTIM_NED - Odometry local coordinate frame of data given by an estimator running onboard the vehicle, Z-down (x: North, y: East, z: Down).</td>
+    </tr>
+    <tr id="MAV_FRAME_RESERVED_19">
+     <td>19</td>
+     <td>
+      <a href="#MAV_FRAME_RESERVED_19">MAV_FRAME_RESERVED_19</a>
+      <p style="color:red">
+       <strong>DEPRECATED:</strong> Replaced by <a href="#MAV_FRAME_LOCAL_FLU">MAV_FRAME_LOCAL_FLU</a> (2019-04).</p>
+     </td>
+     <td>MAV_FRAME_ESTIM_ENU - Odometry local coordinate frame of data given by an estimator running onboard the vehicle, Z-up (x: East, y: North, z: Up).</td>
+    </tr>
+    <tr id="MAV_FRAME_LOCAL_FRD">
+     <td>20</td>
+     <td>
+      <a href="#MAV_FRAME_LOCAL_FRD">MAV_FRAME_LOCAL_FRD</a>
+     </td>
+     <td>FRD local tangent frame (x: Forward, y: Right, z: Down) with origin fixed relative to earth. The forward axis is aligned to the front of the vehicle in the horizontal plane.</td>
+    </tr>
+    <tr id="MAV_FRAME_LOCAL_FLU">
+     <td>21</td>
+     <td>
+      <a href="#MAV_FRAME_LOCAL_FLU">MAV_FRAME_LOCAL_FLU</a>
+     </td>
+     <td>FLU local tangent frame (x: Forward, y: Left, z: Up) with origin fixed relative to earth. The forward axis is aligned to the front of the vehicle in the horizontal plane.</td>
+    </tr>
+   </tbody>
+  </table>
   <h3 id="MAV_PARAM_TYPE">MAV_PARAM_TYPE</h3>
   <p>
    <a href="#enums">
@@ -312,6 +533,106 @@ The receivers can detect if the quaternion contains valid data by comparing the 
       <a href="#MAV_SEVERITY_DEBUG">MAV_SEVERITY_DEBUG</a>
      </td>
      <td>Useful non-operational messages that can assist in debugging. These should not occur during normal operation.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="POSITION_TARGET_TYPEMASK">POSITION_TARGET_TYPEMASK</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>Bitmap to indicate which dimensions should be ignored by the vehicle: a value of 0b0000000000000000 or 0b0000001000000000 indicates that none of the setpoint dimensions should be ignored. If bit 9 is set the floats afx afy afz should be interpreted as force instead of acceleration.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="POSITION_TARGET_TYPEMASK_X_IGNORE">
+     <td>1</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_X_IGNORE">POSITION_TARGET_TYPEMASK_X_IGNORE</a>
+     </td>
+     <td>Ignore position x</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_Y_IGNORE">
+     <td>2</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_Y_IGNORE">POSITION_TARGET_TYPEMASK_Y_IGNORE</a>
+     </td>
+     <td>Ignore position y</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_Z_IGNORE">
+     <td>4</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_Z_IGNORE">POSITION_TARGET_TYPEMASK_Z_IGNORE</a>
+     </td>
+     <td>Ignore position z</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_VX_IGNORE">
+     <td>8</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_VX_IGNORE">POSITION_TARGET_TYPEMASK_VX_IGNORE</a>
+     </td>
+     <td>Ignore velocity x</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_VY_IGNORE">
+     <td>16</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_VY_IGNORE">POSITION_TARGET_TYPEMASK_VY_IGNORE</a>
+     </td>
+     <td>Ignore velocity y</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_VZ_IGNORE">
+     <td>32</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_VZ_IGNORE">POSITION_TARGET_TYPEMASK_VZ_IGNORE</a>
+     </td>
+     <td>Ignore velocity z</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_AX_IGNORE">
+     <td>64</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_AX_IGNORE">POSITION_TARGET_TYPEMASK_AX_IGNORE</a>
+     </td>
+     <td>Ignore acceleration x</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_AY_IGNORE">
+     <td>128</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_AY_IGNORE">POSITION_TARGET_TYPEMASK_AY_IGNORE</a>
+     </td>
+     <td>Ignore acceleration y</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_AZ_IGNORE">
+     <td>256</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_AZ_IGNORE">POSITION_TARGET_TYPEMASK_AZ_IGNORE</a>
+     </td>
+     <td>Ignore acceleration z</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_FORCE_SET">
+     <td>512</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_FORCE_SET">POSITION_TARGET_TYPEMASK_FORCE_SET</a>
+     </td>
+     <td>Use force instead of acceleration</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_YAW_IGNORE">
+     <td>1024</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_YAW_IGNORE">POSITION_TARGET_TYPEMASK_YAW_IGNORE</a>
+     </td>
+     <td>Ignore yaw</td>
+    </tr>
+    <tr id="POSITION_TARGET_TYPEMASK_YAW_RATE_IGNORE">
+     <td>2048</td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK_YAW_RATE_IGNORE">POSITION_TARGET_TYPEMASK_YAW_RATE_IGNORE</a>
+     </td>
+     <td>Ignore yaw rate</td>
     </tr>
    </tbody>
   </table>
@@ -830,6 +1151,300 @@ The receivers can detect if the quaternion contains valid data by comparing the 
      <td>
      </td>
      <td>Override mode switch position, 0.. 255</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="SET_POSITION_TARGET_LOCAL_NED">SET_POSITION_TARGET_LOCAL_NED (<a href="#SET_POSITION_TARGET_LOCAL_NED">
+    #84
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Sets a desired vehicle position in a local north-east-down coordinate frame. Used by an external controller to command the vehicle (manual controller or other system).</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Values</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>
+     </td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>target_system</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>
+     </td>
+     <td>System ID</td>
+    </tr>
+    <tr>
+     <td>target_component</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>
+     </td>
+     <td>Component ID</td>
+    </tr>
+    <tr>
+     <td>coordinate_frame</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>
+      <a href="#MAV_FRAME">MAV_FRAME</a>
+     </td>
+     <td>Valid options are: <a href="#MAV_FRAME_LOCAL_NED">MAV_FRAME_LOCAL_NED</a> = 1, <a href="#MAV_FRAME_LOCAL_OFFSET_NED">MAV_FRAME_LOCAL_OFFSET_NED</a> = 7, <a href="#MAV_FRAME_BODY_NED">MAV_FRAME_BODY_NED</a> = 8, <a href="#MAV_FRAME_BODY_OFFSET_NED">MAV_FRAME_BODY_OFFSET_NED</a> = 9</td>
+    </tr>
+    <tr>
+     <td>type_mask</td>
+     <td>uint16_t</td>
+     <td>
+     </td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK">POSITION_TARGET_TYPEMASK</a>
+     </td>
+     <td>Bitmap to indicate which dimensions should be ignored by the vehicle.</td>
+    </tr>
+    <tr>
+     <td>x</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>X Position in NED frame</td>
+    </tr>
+    <tr>
+     <td>y</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>Y Position in NED frame</td>
+    </tr>
+    <tr>
+     <td>z</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>Z Position in NED frame (note, altitude is negative in NED)</td>
+    </tr>
+    <tr>
+     <td>vx</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>X velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>vy</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>Y velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>vz</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>Z velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>afx</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>afy</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>afz</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>
+     </td>
+     <td>yaw setpoint</td>
+    </tr>
+    <tr>
+     <td>yaw_rate</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>
+     </td>
+     <td>yaw rate setpoint</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="POSITION_TARGET_LOCAL_NED">POSITION_TARGET_LOCAL_NED (<a href="#POSITION_TARGET_LOCAL_NED">
+    #85
+   </a>
+   )
+  </h3>
+  <p>
+   <a href="#messages">
+    [Message]
+   </a>Reports the current commanded vehicle position, velocity, and acceleration as specified by the autopilot. This should match the commands sent in <a href="#SET_POSITION_TARGET_LOCAL_NED">SET_POSITION_TARGET_LOCAL_NED</a> if the vehicle is being controlled this way.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Field Name</th>
+     <th>Type</th>
+     <th>Units</th>
+     <th>Values</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr>
+     <td>time_boot_ms</td>
+     <td>uint32_t</td>
+     <td>ms</td>
+     <td>
+     </td>
+     <td>Timestamp (time since system boot).</td>
+    </tr>
+    <tr>
+     <td>coordinate_frame</td>
+     <td>uint8_t</td>
+     <td>
+     </td>
+     <td>
+      <a href="#MAV_FRAME">MAV_FRAME</a>
+     </td>
+     <td>Valid options are: <a href="#MAV_FRAME_LOCAL_NED">MAV_FRAME_LOCAL_NED</a> = 1, <a href="#MAV_FRAME_LOCAL_OFFSET_NED">MAV_FRAME_LOCAL_OFFSET_NED</a> = 7, <a href="#MAV_FRAME_BODY_NED">MAV_FRAME_BODY_NED</a> = 8, <a href="#MAV_FRAME_BODY_OFFSET_NED">MAV_FRAME_BODY_OFFSET_NED</a> = 9</td>
+    </tr>
+    <tr>
+     <td>type_mask</td>
+     <td>uint16_t</td>
+     <td>
+     </td>
+     <td>
+      <a href="#POSITION_TARGET_TYPEMASK">POSITION_TARGET_TYPEMASK</a>
+     </td>
+     <td>Bitmap to indicate which dimensions should be ignored by the vehicle.</td>
+    </tr>
+    <tr>
+     <td>x</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>X Position in NED frame</td>
+    </tr>
+    <tr>
+     <td>y</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>Y Position in NED frame</td>
+    </tr>
+    <tr>
+     <td>z</td>
+     <td>float</td>
+     <td>m</td>
+     <td>
+     </td>
+     <td>Z Position in NED frame (note, altitude is negative in NED)</td>
+    </tr>
+    <tr>
+     <td>vx</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>X velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>vy</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>Y velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>vz</td>
+     <td>float</td>
+     <td>m/s</td>
+     <td>
+     </td>
+     <td>Z velocity in NED frame</td>
+    </tr>
+    <tr>
+     <td>afx</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>X acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>afy</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>Y acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>afz</td>
+     <td>float</td>
+     <td>m/s/s</td>
+     <td>
+     </td>
+     <td>Z acceleration or force (if bit 10 of type_mask is set) in NED frame in meter / s^2 or N</td>
+    </tr>
+    <tr>
+     <td>yaw</td>
+     <td>float</td>
+     <td>rad</td>
+     <td>
+     </td>
+     <td>yaw setpoint</td>
+    </tr>
+    <tr>
+     <td>yaw_rate</td>
+     <td>float</td>
+     <td>rad/s</td>
+     <td>
+     </td>
+     <td>yaw rate setpoint</td>
     </tr>
    </tbody>
   </table>

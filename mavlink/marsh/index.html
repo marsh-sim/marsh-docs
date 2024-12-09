@@ -115,7 +115,7 @@ All other projects need to generate and appropriate libraries, following the <a 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2024-10-11T11:42:43 from commit <a href="https://github.com/marsh-sim/mavlink/tree/3c260c18be435f65d34dd4c196240b98ad397d43">3c260c1</a></p>
+<p>Generated on 2024-12-09T13:49:36 from commit <a href="https://github.com/marsh-sim/mavlink/tree/153d474873a461f1554c2c34aaa864f818509eef">153d474</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
@@ -221,6 +221,20 @@ All other projects need to generate and appropriate libraries, following the <a 
       <a href="#MARSH_COMP_ID_CONTROL_LOADING">MARSH_COMP_ID_CONTROL_LOADING</a>
      </td>
      <td>Component measuring and actuating forces on pilot control inputs.</td>
+    </tr>
+    <tr id="MARSH_COMP_ID_VIBRATION_SOURCE">
+     <td>34</td>
+     <td>
+      <a href="#MARSH_COMP_ID_VIBRATION_SOURCE">MARSH_COMP_ID_VIBRATION_SOURCE</a>
+     </td>
+     <td>Component providing vibrations for system identification, road rumble, gusts, etc.</td>
+    </tr>
+    <tr id="MARSH_COMP_ID_PILOT_TARGET">
+     <td>35</td>
+     <td>
+      <a href="#MARSH_COMP_ID_PILOT_TARGET">MARSH_COMP_ID_PILOT_TARGET</a>
+     </td>
+     <td>Component providing target for the pilot to follow like controls positions, aircraft state, ILS path etc.</td>
     </tr>
    </tbody>
   </table>
@@ -1469,8 +1483,6 @@ All other projects need to generate and appropriate libraries, following the <a 
    </a>
    )
   </h3>
-  <p style="color:red">
-   <strong>WORK IN PROGRESS:</strong> Do not use in stable production environments (it may change).</p>
   <p>
    <a href="#messages">
     [Message]
