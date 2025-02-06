@@ -12,6 +12,7 @@ ATTITUDE
 # general utility messages
 STATUSTEXT
 MAV_SEVERITY
+COMPONENT_INFORMATION_BASIC
 
 # parameter protocol
 PARAM_REQUEST_LIST
