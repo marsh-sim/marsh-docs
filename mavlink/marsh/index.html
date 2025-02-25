@@ -115,12 +115,13 @@ All other projects need to generate and appropriate libraries, following the <a 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2025-02-25T15:18:16 from commit <a href="https://github.com/marsh-sim/mavlink/tree/b09f14dc356d4cf11e8233bde90575e516b0fc47">b09f14d</a></p>
+<p>Generated on 2025-02-25T15:30:44 from commit <a href="https://github.com/marsh-sim/mavlink/tree/d1487093da47e1bf047f72ebc5fbebab189508d0">d148709</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MARSH_COMPONENT">MARSH_COMPONENT</a></li>
   <li><a href="#MARSH_MODE_FLAGS">MARSH_MODE_FLAGS</a></li>
   <li><a href="#CONTROL_AXIS">CONTROL_AXIS</a></li>
+  <li><a href="#MARSH_MANUAL_SETPOINT_MODE">MARSH_MANUAL_SETPOINT_MODE</a></li>
   <li><a href="#MOTION_PLATFORM_MODE">MOTION_PLATFORM_MODE</a></li>
   <li><a href="#MOTION_PLATFORM_HEALTH">MOTION_PLATFORM_HEALTH</a></li>
   <li><a href="#REXROTH_MOTION_PLATFORM_ERROR">REXROTH_MOTION_PLATFORM_ERROR</a></li>
@@ -311,6 +312,36 @@ All other projects need to generate and appropriate libraries, following the <a 
       <a href="#CONTROL_AXIS_YAW">CONTROL_AXIS_YAW</a>
      </td>
      <td>Yaw axis, with positive values corresponding to pushing right pedal, causing the vehicle to face right direction. For helicopters this is tail collective.</td>
+    </tr>
+   </tbody>
+  </table>
+  <h3 id="MARSH_MANUAL_SETPOINT_MODE">MARSH_MANUAL_SETPOINT_MODE</h3>
+  <p>
+   <a href="#enums">
+    [Enum]
+   </a>Usage of <a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a> message, sent in mode_switch field.</p>
+  <table class="sortable">
+   <thead>
+    <tr>
+     <th>Value</th>
+     <th>Field Name</th>
+     <th>Description</th>
+    </tr>
+   </thead>
+   <tbody>
+    <tr id="MARSH_MANUAL_SETPOINT_MODE_TARGET">
+     <td>0</td>
+     <td>
+      <a href="#MARSH_MANUAL_SETPOINT_MODE_TARGET">MARSH_MANUAL_SETPOINT_MODE_TARGET</a>
+     </td>
+     <td>Values for target inceptors positions that the pilot should follow.</td>
+    </tr>
+    <tr id="MARSH_MANUAL_SETPOINT_MODE_TRIM">
+     <td>1</td>
+     <td>
+      <a href="#MARSH_MANUAL_SETPOINT_MODE_TRIM">MARSH_MANUAL_SETPOINT_MODE_TRIM</a>
+     </td>
+     <td>Values for inceptors trim positions, the exact meaning depends on the flight model.</td>
     </tr>
    </tbody>
   </table>

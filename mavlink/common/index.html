@@ -117,7 +117,8 @@ As a result, the trim position for collective is probably not 0, and is determin
 This also means that the input inceptor for <strong>collective is between 0 and 1 unlike cyclic and pedals</strong>.
 Do not send negative <code>z</code> values, unless flying acrobatic rotorcraft upside-down or fixed wing with reverse thrust.</p>
 <p>Message <a href="#MANUAL_SETPOINT">MANUAL_SETPOINT</a> is used for desired control positions (as displayed in <a href="https://pypi.org/project/lidia/">Lidia</a>), so the values for all fields should be treated as normalized controls positions between -1 and 1 instead of rad/s.
-It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.</p>
+It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.
+Different meaning (target, trim) can be assigned to the values in the <code>mode_switch</code> field as defined in <a href="../marsh/#MARSH_MANUAL_SETPOINT_NODE">MARSH_MANUAL_SETPOINT_MODE</a></p>
 <p>Message <a href="#RAW_RPM">RAW_RPM</a> for helicopters should send rotor with index 0, and then engines in order.</p>
 <p>The message <a href="#SIM_STATE">SIM_STATE</a> and other messages with accelerations, report them as would be measured by an on-board accelerometer.
 The values correspond to accelerations in the body reference frame axes: X forward, Y right, Z down.
@@ -129,7 +130,7 @@ The receivers can detect if the quaternion contains valid data by comparing the 
 <!-- AUTO-GENERATED PART BELOW, DO NOT MODIFY BY HAND -->
 
 <h2 id="definition-list">Definition list</h2>
-<p>Generated on 2025-02-25T15:18:15 from commit <a href="https://github.com/marsh-sim/mavlink/tree/b09f14dc356d4cf11e8233bde90575e516b0fc47">b09f14d</a></p>
+<p>Generated on 2025-02-25T15:30:44 from commit <a href="https://github.com/marsh-sim/mavlink/tree/d1487093da47e1bf047f72ebc5fbebab189508d0">d148709</a></p>
 <ul>
  <li><a href="#enums">Enums</a><ul>
   <li><a href="#MAV_FRAME">MAV_FRAME</a></li>
