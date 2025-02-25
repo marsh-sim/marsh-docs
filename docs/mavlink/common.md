@@ -13,6 +13,7 @@ Do not send negative `z` values, unless flying acrobatic rotorcraft upside-down 
 
 Message [MANUAL_SETPOINT](#MANUAL_SETPOINT) is used for desired control positions (as displayed in [Lidia](https://pypi.org/project/lidia/)), so the values for all fields should be treated as normalized controls positions between -1 and 1 instead of rad/s.
 It is not supported by ArduPilot at all, and only used for Rover in PX4, so no collisions are expected.
+Different meaning (target, trim) can be assigned to the values in the `mode_switch` field as defined in [MARSH_MANUAL_SETPOINT_MODE](./marsh.md#MARSH_MANUAL_SETPOINT_NODE)
 
 Message [RAW_RPM](#RAW_RPM) for helicopters should send rotor with index 0, and then engines in order.
 
